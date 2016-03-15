@@ -28,11 +28,15 @@ header{
     background:#DB3E75;
 }
 .header-date{
+    top: 47px;
+    position: relative;
     float:right;
     color:#d45d5c;
 }
 .content{
+    border-bottom: 2px solid #ccc;
     width:892px;
+    height: 1250px;
     margin:0 auto;
     margin-top: 33px;
 }
@@ -221,10 +225,8 @@ header{
     float:right;
     width:458px;
     height:630px;
-    background:red;
 }
 .list-right-title{
-    position:absolute;
     width:458px;
     height:257px;
     background:url(../img/tu2.png);
@@ -235,4 +237,110 @@ header{
     width:458px;
     height:60px;
     background:rgba(0,0,0,0.6);
+}
+.list-right-cont{
+    float:left;
+    width:458px;
+    margin-top: 55px;
+    height:318px;
+    background:#EAF1CF;
+}
+.list-r-t{
+    width: 100%;
+    height:157px;
+}
+.list-r-b{
+    width: 100%;
+    height: 160px;
+}
+.list-r-b-l{
+    float: left;
+    padding: 10px 10px;
+    width: 240px;
+    height: 140px;
+    background: #DB3E75;   
+}
+.list-r-t-q{
+   position:relative;
+    top:30px;
+    left:30px;
+}
+.list-r-t-q p{
+    width: 380px;
+    font-style:italic;
+    padding-bottom:13px;
+    font-size:16px;
+    color:#5a5b5b;
+    font-family:"宋体";
+    line-height:20px;
+    padding-left: 27px;
+    background: url(../img/shangsanjiao.png) no-repeat center;
+    background-size: 27px 28px;
+    background-position: 0px -3px;
+}
+.list-r-t-q span{
+    float: right;
+    font-size:12px;
+}
+.list-r-b-r{
+    padding: 15px;
+    float: left;
+    width: 168px;
+    height: 130px;
+}
+.yin{
+    position: relative;
+    top: -18px;
+    left: -9px;
+    width: 24px;
+    height: 1px;
+    float: left;
+    font-size:72px;
+    color:#d45d5c;
+    font-family:"黑体";
+}
+.list-r-b-r-c{
+    font-size:14px;
+    color:#5a5b5b;
+    line-height:16px;
+    font-family:"黑体";    
+}
+.r{
+    top: -6px;
+    left: -20px;
+    float:right;
+}
+.ling{
+    float: left;
+    font-size:110px;
+    color:#fff;
+    font-family:"Microsoft Yahei";
+}
+.xian{
+    width: 0;
+    height: 80px;
+    border: 2px solid;
+    display: inline-block;
+}
+.rr{
+    float: left;
+    width: 165px;
+    position: relative;
+    top: 30px;
+    left: 10px;
+}
+.one{
+    margin-bottom:3px;
+    font-style:italic;
+    font-size:21px;
+    font-family:"黑体";
+    line-height: 24px;
+    color:#fff;
+}
+.hello{
+    font-size:12px;
+    font-family:"黑体";
+    line-height: 12px;
+    color:#fff;
+    
 }
