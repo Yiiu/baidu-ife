@@ -235,8 +235,25 @@ header{
     position:relative;
     top:197px;
     width:458px;
+    line-height:60px;
     height:60px;
     background:rgba(0,0,0,0.6);
+}
+.test1{
+    margin-left: 30px;
+    padding-left: 10px;
+    border-left: 3px solid #72b16a;
+    font-size: 26px;
+    color: #fff;
+    font-family: "Microsoft Yahei";
+}
+.test2{
+    margin-left: 10px;
+    font-size: 12px;
+    font-style:italic;
+    color: #72b16a;
+    line-height:1.4em;
+    font-family: "Microsoft Yahei";
 }
 .list-right-cont{
     float:left;
@@ -290,8 +307,8 @@ header{
 }
 .yin{
     position: relative;
-    top: -18px;
-    left: -9px;
+    left: -47px;
+    top: -13px;
     width: 24px;
     height: 1px;
     float: left;
@@ -342,5 +359,18 @@ header{
     font-family:"黑体";
     line-height: 12px;
     color:#fff;
-    
+}
+.green{
+    float:left;
+    width: 191px;
+    height: 301px;
+    background: green;
+    opacity: .4;    
+}
+.red{
+    float:right;
+    width: 191px;
+    height: 301px;
+    background: red;
+    opacity: .4;    
 }
