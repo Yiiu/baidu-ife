@@ -36,7 +36,7 @@ header{
 .content{
     border-bottom: 2px solid #ccc;
     width:892px;
-    height: 1250px;
+    height: 1230px;
     margin:0 auto;
     margin-top: 33px;
 }
@@ -188,7 +188,7 @@ header{
 }
 .list-left-t{
     height: 150px;
-    border-bottom:2px solid #11456b;
+    border-bottom:3px solid #11456b;
 }
 .list-left-t span:first-child{
     font-style: oblique;
@@ -205,7 +205,7 @@ header{
     color:#11456b;
 }
 .list-left-b{
-    margin-top:49px;
+    margin-top:20px;
     width: 408px;
     height: 428px;
 }
@@ -240,6 +240,8 @@ header{
     background:rgba(0,0,0,0.6);
 }
 .test1{
+    padding-top:4px;
+    padding-bottom:4px;
     margin-left: 30px;
     padding-left: 10px;
     border-left: 3px solid #72b16a;
@@ -371,6 +373,17 @@ header{
     float:right;
     width: 191px;
     height: 301px;
-    background: red;
+    background: #cc7680;
     opacity: .4;    
+}
+footer {
+    margin-right:45px;
+    float:right;
+    font:12px "黑体";
+    color:#d45d5c;
+}
+
+.csss {
+    position: relative;
+    top: 18px;
 }
