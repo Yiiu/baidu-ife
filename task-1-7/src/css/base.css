@@ -1,0 +1,93 @@
+*{
+    font-family: "microsoft yahei";
+    margin:0;
+    padding:0;
+}
+header {
+    height:57px;
+    min-width:1280px;
+    margin:0 auto;
+}
+
+.logo {
+    float:left;
+    width:90px;
+    height: 57px;
+    margin-left:5%;
+    padding-left:40px;
+    line-height: 57px;
+    font-family: "黑体";
+    font-size:24px;
+    background: url(../img/logo.png) no-repeat center left;
+    background-size: 35px 35px;
+}
+
+nav {
+    float:right;
+    height:54px;
+    line-height:54px;
+    margin-right:5%;
+}
+nav li{
+    
+    display:inline-block;
+}
+nav li:first-child{
+    border-bottom:3px solid #e74f4d;
+}
+nav li a{
+    padding:0 16px;
+    display:inline-block;
+    height:54px;
+    color:#787b83;
+    text-decoration: none;
+}
+nav li a:hover{
+    border-bottom:3px solid #e74f4d;
+    color:#e74f4d;
+}
+.log{
+    background:url(../img/log.png) no-repeat;
+    background-position:0 19px;
+}
+.log a{
+    color:#e74f4d;
+}
+.main{
+    min-width:1280px;
+}
+.banner{
+    height:690px;
+    min-width:1280px;
+    background:url(../img/tu1.png) no-repeat center;
+    background-attachment:fixed;
+    background-size:cover;
+}
+.banner>.content{
+    margin-left:8%;
+    padding-top:230px;
+    min-width:1280px;
+}
+.banner>.content h1{
+    font-family:"arial";
+    font-size:60px;
+    color:#fff;
+}
+.banner>.content p{
+    margin-left:10px;
+    margin: 12px 0 12px 12px;
+    font-size:18px;
+    color:#fff;
+}
+botton.tiyan{
+    display:inline-block;
+    width:330px;
+    height:63px;
+    line-height:63px;
+    margin-left:12px;
+    text-align:center;
+    background:#e74f4d;
+    font-size:31px;
+    color:#fff;
+    cursor:pointer;
+}
