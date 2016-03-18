@@ -5,6 +5,7 @@
 }
 header {
     height:57px;
+    width:1280px;
     min-width:1280px;
     margin:0 auto;
 }
@@ -29,7 +30,6 @@ nav {
     margin-right:5%;
 }
 nav li{
-    
     display:inline-block;
 }
 nav li:first-child{
@@ -64,9 +64,8 @@ nav li a:hover{
     background-size:cover;
 }
 .banner>.content{
-    margin-left:8%;
+    padding-left:8%;
     padding-top:230px;
-    min-width:1280px;
 }
 .banner>.content h1{
     font-family:"arial";
@@ -90,4 +89,101 @@ botton.tiyan{
     font-size:31px;
     color:#fff;
     cursor:pointer;
+}
+.jianjie {
+    height:250px;
+    width:1280px;
+    margin:0 auto;
+    text-align:center;
+}
+.jianjie ul{
+    float:left;
+    width:320px;
+    height:250px;
+}
+.jianjie li{
+    display:block;
+    padding-bottom:20px;
+    border-right:1px solid #787b83;
+    color:#787b83;
+}
+.jianjie li.none-b{
+    border-right:0px;
+}
+.jianjie .icon-img{
+    height:140px;
+    width:320px;
+}
+.shijie{
+    background:url(../img/3.png) no-repeat center;
+}
+.qi{
+    background:url(../img/2.png) no-repeat center;
+}
+.hua{
+    background:url(../img/1.png) no-repeat center;
+}
+.fang{
+    background:url(../img/4.png) no-repeat center;
+}
+.world {
+    margin:0 auto;
+    height:360px;
+    text-align:center;
+    min-width:1280px;
+    background:#ededec;
+    font-size:60px;
+    color:#867e7a;
+}
+.shu {
+    margin:0 auto;
+    width:400px;
+    height:200px;
+    background:url(../img/shu.png) no-repeat center;
+}
+.search{
+    min-width:1280px;
+    height:340px;
+    background:url(../img/ditu.png) no-repeat center;
+    background-size:cover;
+    background-attachment:fixed;
+    text-align:center;
+}
+.search p{
+    color:#fff;
+    opacity:.8;
+}
+.search p.s-title{
+    padding-top:50px;
+    font-size:26px;
+}
+.xhx{
+    margin-top:5px;
+    margin-bottom:15px;
+    width:42px;
+    height:2px;
+    display:inline-block;
+    background:#fff;
+}
+.search>ul{
+    margin-top:30px;
+}
+.search select{
+    width:237px;
+    height:38px;
+    border: none;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+.search select option{
+    margin:28px;
+    background:#e3e3e4;
+    border:none;
+    color:black;
+    
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
 }
