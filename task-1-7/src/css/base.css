@@ -86,6 +86,7 @@ div.tiyan{
     width:330px;
     height:63px;
     line-height:63px;
+    margin-top:60px;
     margin-left:12px;
     text-align:center;
     background:#e74f4d;
@@ -154,7 +155,9 @@ div.tiyan{
 }
 .search p{
     color:#fff;
-    opacity:.8;
+}
+.search p.chengshi{
+    margin-bottom: 50px;
 }
 .search p.s-title{
     padding-top:50px;
@@ -168,27 +171,69 @@ div.tiyan{
     display:inline-block;
     background:#fff;
 }
-.search>ul{
-    margin-top:30px;
+.search>div.se{
+    width:1050px;
+    margin:0 auto;
+    cursor:pointer;
+    moz-user-select: -moz-none;
+    -webkit-user-select:none;
+     -khtml-user-select:none;
+       -moz-user-select: none;
+        -ms-user-select:none;
+        moz-user-select: -moz-none;
+         -o-user-select:none;
+            user-select:none;
 }
-.search select{
-    width:237px;
+.se>div.select{
+    margin-left:25px;
+    float:left;
+    width:235px;
     height:38px;
-    border: none;
-    -webkit-appearance:none;
-       -moz-appearance:none;
-            appearance:none;
+    background:#fff url(../img/anniu.png) no-repeat center;
+    background-position:210px 11px;
 }
-.search select option{
-    margin:28px;
-    background:#e3e3e4;
-    border:none;
-    color:black;
-    
-    -webkit-appearance:none;
-       -moz-appearance:none;
-            appearance:none;
+.se>div.select-b{
+    margin-left:25px;
+    float:left;
+    width:235px;
+    height:38px;
+    line-height:38px;
+    background:#BF4E48;
+    cursor: pointer;
 }
+.se>div.fo{
+    border-bottom:none;
+    border: 1px solid #BF4E48;
+}
+.se>div.select>p{
+    padding-left:10px;
+    line-height:38px;
+    color:#bbb;
+    text-align:left;
+}
+.se>div.select>ul{
+    position:relative;
+    top:0;
+    left:-1px;
+    width:235px;
+    border-top:none;
+    border:1px solid #BF4E48;
+    background:#E3E3E5;
+}
+.se>div.select>ul p{
+    padding-left:40px;
+    line-height:30px;
+    color:#7B7B7D;
+    text-align:left;
+    cursor:pointer;
+}
+.se>div.select>ul p:hover{
+    color:#fff;
+    background:#BF4E48 url(../img/dui.png) no-repeat ;
+    background-size:18px 18px;
+    background-position:10px 6px;
+}
+
 .event{
     height:605px;
     background:#f7f7f7;
@@ -473,6 +518,14 @@ li.xghd>.hd-img{
 .apply>div.content>div.title{
     margin-bottom:100px;
     text-align:center;
+}
+.apply>div.content>div.title>p{
+    line-height:20px;
+    color:#ccc;
+}
+.apply>div.content>div.title>div.xhx{
+    margin-top:20px;
+    background:red;
 }
 .apply>div.content>div.left{
     float:left;
