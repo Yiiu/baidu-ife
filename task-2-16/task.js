@@ -39,7 +39,7 @@ function renderAqiList() {
     var table = document.getElementById("aqi-table");
     table.innerHTML += 
         + "<tr>"
-        + "    <td>" + aqiData;
+        + "    <td>"
 }
 
 /**
