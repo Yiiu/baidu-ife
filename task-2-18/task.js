@@ -4,7 +4,7 @@ var num = document.getElementById("num");
 function div(){
     var num = document.getElementById("nu");
     num.innerHTML = ""
-    for(var i=0;i<arr.length;i++){
+    for(var i=0;i<arr.length;i
         num.innerHTML += "<div class='me'>"+ arr[i] +"</div>";
     }
 }
