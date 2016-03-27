@@ -4,12 +4,15 @@ var bb = []; //临时数据
 var bnt = document.getElementsByTagName("button");
 var num = document.getElementById("num");
 var cxinp = document.getElementById("cx");
+var cxbnt = document.getElementById("chaxun");
+var content = document.getElementById("nu");
+var me = content.getElementsByClassName("me");
 /*
  * 吧字符串分割开来
  * 回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号
  */ 
 /* 查询 */
-function search (){
+function me(){
     var div = document.getElementsByClassName("me");
     var jg = qu();
     for(var j=0;j<div.length;j++){
@@ -21,9 +24,9 @@ function search (){
 }
 function qu(){
     var cx = []; //查询到的序号
-    var reg = eval("/"+cxinp.value+"/g");
+    var reg = cxinp.value;
     for(var i=0;i<arr.length;i++){
-        if(reg.test(arr[i])){
+        if(arr[i].search(reg) == 0){
             cx.push(i);
         }
     }
@@ -40,7 +43,7 @@ function div(){
     te();
     num.innerHTML = ""
     for(var i=0;i<arr.length;i++){
-        num.innerHTML += "<div class='me'>"+ arr[i] +"</div>";
+        num.innerHTML += "<div class='me' id='"+i+"'>"+ arr[i] +"</div>";
     }
 }
 // 按钮的动作
@@ -73,9 +76,27 @@ function open(){
             div();
         })
     }
+    /* 查询按钮 */
+    cxbnt.addEventListener("click",function(e){
+        var c = qu();
+        if(cxinp.value == ''){
+            alert("请输入要查询的字符");
+            return;
+        }else if(c.length == 0){
+            alert("没查找到");
+        }
+        me();
+    })
+    nu.addEventListener("click",function(e){
+        if(e.target && e.target.nodeName == "DIV"){
+            //arr.splice(1,this.arr-length);
+            alert(e.target.id)
+            arr.splice(e.target.id,1);
+            div();
+        }
+    })
 }
 function i(){
-    div();
     te();
     open();
 }
