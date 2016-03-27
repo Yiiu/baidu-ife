@@ -90,7 +90,6 @@ function open(){
     nu.addEventListener("click",function(e){
         if(e.target && e.target.nodeName == "DIV"){
             //arr.splice(1,this.arr-length);
-            alert(e.target.id)
             arr.splice(e.target.id,1);
             div();
         }

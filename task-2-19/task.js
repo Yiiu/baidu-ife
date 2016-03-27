@@ -30,7 +30,7 @@ function div(){
     var num = document.getElementById("nu");
     num.innerHTML = ""
     for(var i=0;i<arr.length;i++){
-        num.innerHTML += "<div class='me'style='height:"+ arr[i] +"px;'></div>";
+        num.innerHTML += "<div class='me'style='height:"+ arr[i] +"px;' id='"+i+"'></div>";
     }
 }
 function open(){
@@ -79,6 +79,13 @@ function open(){
             div();
         })
     }
+    nu.addEventListener("click",function(e){
+        if(e.target && e.target.nodeName == "DIV"){
+            //arr.splice(1,this.arr-length);
+            arr.splice(e.target.id,1);
+            div();
+        }
+    })
 }
 /*
  * 控制排序和随机数按钮，运行maopao()suiji()
