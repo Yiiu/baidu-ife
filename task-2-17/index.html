@@ -5,8 +5,15 @@
         <title>IFE JavaScript Task 01</title>
     </head>
     <style>
-        .day>div.me{
+        .days{
+            float:left;
+            margin-right: 5px;
             width:10px; 
+            background:red;
+        }
+        .me{
+            display: flex;
+            align-items: flex-end;
         }
     </style>
 <body>
@@ -37,7 +44,10 @@
         <fieldset id="form-gra-time">
             <legend>详情</legend>
             <div class="details day">
-                <div class="me"></div>
+                <div class="me">
+                    <div class="days" height="82px" title="2016-01-01:82"></div>
+                    <div class="days" height="13px" title="2016-01-02:13"></div>
+                </div>
             </div>
         </fieldset>
     </div>
