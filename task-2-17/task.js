@@ -53,7 +53,11 @@ var pageState = {
   nowSelectCity: -1,
   nowGraTime: "day"
 }
+// 暂时保存城市
 var day = [];
+// 保存选择的城市的数据，在经过time函数处理天数
+var timeData = [];
+/* 按城市处理数据 */
 function myday(){
     for(var i in aqiSourceData){
         day.push(i);
@@ -61,23 +65,48 @@ function myday(){
     var num = pageState.nowSelectCity;
     for(var i=0;i<day.length;i++){
         if(num == i){
-            chartData = aqiSourceData[day[i]];
-            console.log(chartData);
+            timeData = aqiSourceData[day[i]];
+            console.log(timeData);
         }
     }
+    renderChart(timeData);
 }
 /**
  * 渲染图表
  */
 function renderChart(data) {
-    for(var city in data){
-        for(var day in data[city]){
-            me.innerHTML 
-                += "<div class='days' style='height:"+data[city][day] +"px;' title="+day+":"+ data[city][day] +"></div>";
-        }
+    me.innerHTML = '';
+    for(var day in data){
+        me.innerHTML 
+            += "<div class='days' style='height:"+data[day] +"px;' title="+day+":"+ data[day] +"></div>";
     }
 }
-
+/**
+ *   按日期处理数据
+ *   判断时间，按天算全部输出，按周取七天平均值，按月取30天平均值
+ */
+function time(){
+    var num = [];
+    for(var day in timeData){
+        num.push(timeData[day]);
+    }
+    console.log(num);
+    var mytime = pageState.nowGraTime;
+    console.log(mytime);
+    switch(mytime){
+        case "day":
+            charData = timeData;
+            return charData;
+        break;
+        case "week":
+            for(var i=0;i<num.length;i++){
+                if(i%7 == 0){
+                    
+                }
+            }
+        break;
+    }
+}
 /**
  * 日、周、月的radio事件点击时的处理函数
  */
