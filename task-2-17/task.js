@@ -70,6 +70,7 @@ function myday(){
         }
     }
     renderChart(timeData);
+    time();
 }
 /**
  * 渲染图表
@@ -86,6 +87,7 @@ function renderChart(data) {
  *   判断时间，按天算全部输出，按周取七天平均值，按月取30天平均值
  */
 function time(){
+    chartData = {};
     var num = [];
     for(var day in timeData){
         num.push(timeData[day]);
@@ -95,17 +97,68 @@ function time(){
     console.log(mytime);
     switch(mytime){
         case "day":
-            charData = timeData;
-            return charData;
+            chartData = timeData;
+            console.log(chartData);
         break;
         case "week":
-            for(var i=0;i<num.length;i++){
-                if(i%7 == 0){
-                    
+            var week = 1;
+            var te = [];
+            for(var i=1;i<=num.length;i++){
+                if(i%7 === 0 && i!=0){
+                    week++;
+                    var addnum = 0;
+                    for(var j=i-7;j<i;j++){
+                        addnum+=parseInt(num[j]);
+                    }
+                    addnum = addnum/7;
+                    te.push(addnum);
+                }
+                /* 假如最后一周不足7天，吧剩下的数算平均数当作一周 */
+            }
+            if(week*7!=num.length){
+                var remnum = 0;
+                var rem = parseInt(week*7);
+                for(var r=rem;r<=num.length;r++){
+                    remnum+=parseInt(num[r]);
+                    remnum = remnum/num.length-rem;
+                }
+                te.push(remnum);
+            }
+            for(var i=1;i<week;i++){
+                eval("chartData.week"+ i +"="+te[i-1]);
+            }
+            console.log(chartData);
+        break;
+        /*case "month":
+            var month = 1;
+            var te = [];
+            for(var i=1;i<=num.length;i++){
+                if(i%7 === 0 && i!=0){
+                    month++;
+                    var addnum = 0;
+                    for(var j=i-7;j<i;j++){
+                        addnum+=parseInt(num[j]);
+                    }
+                    addnum = addnum/7;
+                    te.push(addnum);
                 }
             }
-        break;
+            if(week*7!=num.length){
+                var remnum = 0;
+                var rem = parseInt(week*7);
+                for(var r=rem;r<=num.length;r++){
+                    remnum+=parseInt(num[r]);
+                    remnum = remnum/num.length-rem;
+                }
+                te.push(remnum);
+            }
+            for(var i=1;i<week;i++){
+                eval("chartData.week"+ i +"="+te[i-1]);
+            }
+            console.log(chartData);
+        break;*/
     }
+    renderChart(chartData)
 }
 /**
  * 日、周、月的radio事件点击时的处理函数
@@ -127,6 +180,7 @@ function initGraTimeForm() {
     times.addEventListener("click",function(e){
         if(e.target && e.target.nodeName === "INPUT"){
             graTimeChange(e.target.value);
+            myday();
         }
     },false)
 }
@@ -137,7 +191,8 @@ function initGraTimeForm() {
 function initCitySelector() {
   // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
     citys.addEventListener("change",function(e){
-           citySelectChange(citys.selectedIndex);
+        citySelectChange(citys.selectedIndex);
+        myday();
     })
   // 给select设置事件，当选项发生变化时调用函数citySelectChange
 }
