@@ -129,34 +129,26 @@ function time(){
             }
             console.log(chartData);
         break;
-        /*case "month":
+        case "month":
             var month = 1;
             var te = [];
-            for(var i=1;i<=num.length;i++){
-                if(i%7 === 0 && i!=0){
+            var me = 0;
+            for(var i = 1;i<=num.length;i++){
+                if( i == moday(month) ||  i - moday(month) ==moday(month-1)){
                     month++;
                     var addnum = 0;
-                    for(var j=i-7;j<i;j++){
+                    for(var j=i-moday(week);j<i;j++){
                         addnum+=parseInt(num[j]);
                     }
-                    addnum = addnum/7;
+                    addnum = addnum/moday(month);
                     te.push(addnum);
+                    console.log(num.length);
                 }
             }
-            if(week*7!=num.length){
-                var remnum = 0;
-                var rem = parseInt(week*7);
-                for(var r=rem;r<=num.length;r++){
-                    remnum+=parseInt(num[r]);
-                    remnum = remnum/num.length-rem;
-                }
-                te.push(remnum);
+            for(var i=1;i<month;i++){
+                eval("chartData.month"+ i +"="+te[i-1]);
             }
-            for(var i=1;i<week;i++){
-                eval("chartData.week"+ i +"="+te[i-1]);
-            }
-            console.log(chartData);
-        break;*/
+        break;
     }
     renderChart(chartData)
 }
@@ -184,7 +176,20 @@ function initGraTimeForm() {
         }
     },false)
 }
-
+//判断月份的天数，返回一个数字
+function moday(week){
+    var day = 0;
+    if(week === 1 || week === 3 || week === 5 || week === 7 || week === 8 || week === 10 || week === 12){
+        day = 31;3
+        return day;
+    }else if(week === 2){
+        day = 29;
+        return day;
+    }else{
+        day = 30;
+        return day;
+    }
+}
 /**
  * 初始化城市Select下拉选择框中的选项
  */
