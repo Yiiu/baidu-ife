@@ -12,7 +12,7 @@ var me = content.getElementsByClassName("me");
  * 回车，逗号（全角半角均可），顿号，空格（全角半角、Tab等均可）等符号
  */ 
 /* 查询 */
-function me(){
+function chaz(){
     var div = document.getElementsByClassName("me");
     var jg = qu();
     for(var j=0;j<div.length;j++){
@@ -74,6 +74,7 @@ function open(){
                     arr.pop();
                     break;
             }
+            num.value = ""; //初始化
             div();
         })
     }
@@ -85,8 +86,10 @@ function open(){
             return;
         }else if(c.length == 0){
             alert("没查找到");
+            return;
+        }else{
+        chaz()
         }
-        me();
     })
     nu.addEventListener("click",function(e){
         if(e.target && e.target.nodeName == "DIV"){
