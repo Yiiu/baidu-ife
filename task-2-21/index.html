@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: "微软雅黑";
+        }
+        .test{
+            margin-bottom: 40px;
+        }
+        div.tags{
+            margin-top: 20px;
+        }
+        div.tags>span{
+            -webkit-transition: all 0.5s;
+            color:#fff;
+            margin-top: 10px;
+            margin-right:5px;
+            padding: 3px;
+        }
+        div.test>div.tags>span{
+            background: #88CBFF;
+        }
+        div.hobby>div.tags>span{
+            background: #F9C989;
+        }
+        .del{
+            background: #FE0300 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="test">
+        <span>tag:</span>
+        <input id="tag-1" type="text">
+        <div class="tags">
+            <span>HTML5</span>
+            <span>JavaScript</span>
+            <span>CSS</span>
+        </div>
+    </div>
+    <div class="hobby">
+        <textarea id="tag-2"></textarea>
+        <br>
+        <button id="con">确认兴趣爱好</button>
+        <div class="tags">
+            <span>游泳</span>
+            <span>瑜伽</span>
+            <span>摄影</span>
+        </div>
+    </div>
+    <div id="nu"></div>
+</body>
+<script src="task.js"></script>
+</html>
