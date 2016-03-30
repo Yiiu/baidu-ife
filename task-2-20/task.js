@@ -35,7 +35,8 @@ function qu(){
 }
 /* 吧字符分隔开，批量插入 */
 function te(){
-    bb = num.value.split(/[\s|,|，|、|　]+/);
+    cc = num.value.trim();
+    bb = cc.split(/[\s|,|，|、|　]+/);
     console.log(arr);
 }
 function div(){
@@ -55,13 +56,13 @@ function open(){
                     te();
                     console.log(bb);
                     for(var i=bb.length-1;i>=0;i--){
-                        arr.unshift(bb[i]);
+                        arr.unshift(bb[i].trim());
                     }
                     break;
                 case "rightjoin": 
                     te();
                     for(var i=0;i<bb.length;i++){
-                        arr.push(bb[i]);
+                        arr.push(bb[i].trim());
                     }
                     break;
                 case "leftcome":
@@ -94,6 +95,10 @@ function open(){
             div();
         }
     })
+}
+//去除空格
+String.prototype.trim=function() {
+    return this.replace(/(^\s*)|(\s*$)/g,'');
 }
 function i(){
     te();
