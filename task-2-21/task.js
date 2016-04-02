@@ -57,10 +57,12 @@ function del(obj){
         }
     })
 }
+function 
 //去除空格
 String.prototype.trim=function() {
     return this.replace(/(^\s*)|(\s*$)/g,'');
 }
+/* 判断数组是否包含某个数 */
 Array.prototype.eqArray = function(e){
     var num = 0;
     for(var i=0;i<this.length;i++){
