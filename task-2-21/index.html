@@ -18,10 +18,14 @@
             color:#fff;
             margin-top: 10px;
             margin-right:5px;
-            padding: 3px;
+            padding: 3px 8px;
         }
         div.test>div.tags>span{
             background: #88CBFF;
+            cursor:pointer;
+        }
+        div.test>div.tags>span.del{
+            background: #FE0007;
         }
         div.hobby>div.tags>span{
             background: #F9C989;
@@ -36,9 +40,6 @@
         <span>tag:</span>
         <input id="tag-1" type="text">
         <div class="tags">
-            <span>HTML5</span>
-            <span>JavaScript</span>
-            <span>CSS</span>
         </div>
     </div>
     <div class="hobby">
@@ -46,9 +47,6 @@
         <br>
         <button id="con">确认兴趣爱好</button>
         <div class="tags">
-            <span>游泳</span>
-            <span>瑜伽</span>
-            <span>摄影</span>
         </div>
     </div>
     <div id="nu"></div>
