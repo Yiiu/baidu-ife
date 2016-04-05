@@ -4,32 +4,55 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        div{
+        #box{
+            margin:0 auto;
+            width:800px;
+            height: 210px;
+        }
+        #button{
+            width: 225px;
+            margin: 0 auto;
+        }
+        #box div{
+            transition: 1s;
             margin: 10px;
-            padding: 25px;
-            border: 1px solid #ccc;
+            padding: 15px;
+            border: 2px solid #ccc;
+            background:#fff;
             float: left;
         }
     </style>
 </head>
 <body>
+    <div id="box">
     <div id="root">
-        <div>
             <div>
-                <div></div>
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
             <div>
-                <div></div>
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
-        </div>
-        <div>
-            <div>
-                <div></div>
-            </div>
-            <div>
-                <div></div>
-            </div>
-        </div>
+    </div>
+    </div>
+    <div id="button">
+        <input type="button" value="先序遍历" id="pre">
+        <input type="button" value="中序遍历" id="in">
+        <input type="button" value="后序遍历" id="post">
     </div>
 </body>
+    <script src="task.js"></script>
 </html>
