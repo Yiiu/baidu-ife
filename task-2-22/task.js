@@ -14,7 +14,8 @@ var preOrder = function(node){
     if(node){
         data.push(node);
         preOrder(node.firstElementChild);
-        preOrder(node.lastElementChild);
+        preOrder(node.lastElementChild);            
+        }
     }
 }
 /* 递归方法实现中序遍历 */
@@ -50,14 +51,16 @@ function set(data){
     var i = 0;
     var timer = setInterval(function(){
         state = 1;
-        i++
         if(i<data.length){
-            data[i-1].style.background = "#fff";
+            if(i>0){
+                data[i-1].style.background = "#fff";                
+            }
             data[i].style.background = "red";
         }else if(i == data.length){
             clearInterval(timer);
             state = 0;
             data[i-1].style.background = "#fff";
         }
+        i++;
     },500);
 }
