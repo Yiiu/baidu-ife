@@ -1,36 +1,32 @@
 var root  = document.getElementById("root");
 var data = [];
 var state = 0;          //0表示没有遍历，1表示正在遍历
+var box = document.getElementById("box");
+var div = box.getElementsByTagName("div");
+var namedata =
+["function","var","this","for","if","else","try","in","do","new","while","width","default","case","void","delete","int","char","class","window","prototype"]
 /* 递归方法实现前序遍历 */
 window.onload = function(){
     var pre = document.getElementById("pre");
     var ins = document.getElementById("in");
     var post = document.getElementById("post");
     bnt(pre,preOrder);
-    bnt(ins,inOrder);
-    bnt(post,postOrder);
+    names();
 }
+// namedata
+function names(){
+    for(var i=0;i<div.length;i++){
+        div[i].innerHTML += namedata[i];
+        div[i].data = namedata[i];
+    }
+}
+//深度优先遍历
 var preOrder = function(node){
     if(node){
         data.push(node);
-        preOrder(node.firstElementChild);
-        preOrder(node.lastElementChild);
-    }
-}
-/* 递归方法实现中序遍历 */
-var inOrder = function(node){
-    if(node){
-        preOrder(node.firstElementChild);
-        data.push(node);
-        preOrder(node.lastElementChild);
-    }
-}
-/* 递归方法实现后序遍历 */
-var postOrder = function(node){
-    if(node){
-        preOrder(node.firstElementChild);
-        preOrder(node.lastElementChild);
-        data.push(node);
+        for(var i=0;i<node.children.length;i++){
+            preOrder(node.children[i]);
+        }
     }
 }
 /* 按钮事件 */
@@ -62,4 +58,8 @@ function set(data){
         }
         i++;
     },500);
+}
+//去除空格
+String.prototype.trim=function() {
+    return this.replace(/(^\s*)|(\s*$)/g,'');
 }
