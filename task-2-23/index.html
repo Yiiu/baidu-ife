@@ -15,11 +15,17 @@
         }
         #box div{
             transition: 1s;
+            background: #fff;
             margin: 15px 5px;
             padding: 10px 5px;
             border: 2px solid #ccc;
-            background:#fff;
             float: left;
+        }
+        .red{
+            background: red !important;
+        }
+        .blue{
+            background: blue !important;
         }
     </style>
 </head>
@@ -58,7 +64,7 @@
     </div>
     <div id="button">
         <input type="button" value="深度优先遍历" id="pre">
-        <input type="text" id="seek" >
+        <input type="text" id="seek" name="seek">
         <input type="button" value="深度优先遍历查找" id="seek-bnt">
     </div>
 </body>

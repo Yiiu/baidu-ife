@@ -1,10 +1,11 @@
 var root  = document.getElementById("root");
 var data = [];
+var seekdata = [];
 var state = 0;          //0表示没有遍历，1表示正在遍历
 var box = document.getElementById("box");
 var div = box.getElementsByTagName("div");
 var namedata =
-["function","var","this","for","if","else","try","in","do","new","while","width","default","case","void","delete","int","char","class","window","prototype"]
+["function","var","this","for","if","else","try","in","do","new","while","width","default","case","void","delete","int","char","class","window","prototype","undefined"]
 /* 递归方法实现前序遍历 */
 window.onload = function(){
     var pre = document.getElementById("pre");
@@ -12,6 +13,49 @@ window.onload = function(){
     var post = document.getElementById("post");
     bnt(pre,preOrder);
     names();
+}
+// 搜索功能
+function seach(){
+    var seek = document.getElementById("seek");
+    var bnt = document.getElementById("seek-bnt");
+    bnt.onclick = function(){
+        if(seek.value == null || seek.value == ''){
+            alert("请输入要查询的值");
+        }else{
+            init() //初始化
+            preOrder(root);
+            var i = 0;
+            var me = 0;
+            var timer = setInterval(function(){
+                state = 1;
+                if(i<data.length){
+                    if(i>0){
+                        data[i-1].className = "";   
+                    }
+                    data[i].className = "red"; 
+                    if(seek.value == data[i].data){
+                        data[i].style.background = "blue";
+                        seekdata.push(data[i]);
+                        me = 1;
+                    }
+                }else if(i == data.length){
+                    clearInterval(timer);
+                    state = 0;
+                    data[i-1].className = ""; 
+                    if(me == 0){
+                        alert("没有查找到");
+                    }
+                }
+                i++;
+            },500);
+        }
+    }
+}
+function init(){
+    for(var i=0;i<seekdata.length;i++){
+        seekdata[i].style.background = ""
+    }
+    data = [];
 }
 // namedata
 function names(){
@@ -48,13 +92,14 @@ function set(data){
         state = 1;
         if(i<data.length){
             if(i>0){
-                data[i-1].style.background = "#fff";                
+                data[i-1].className = "";                
             }
-            data[i].style.background = "red";
+            data[i].className = "red";
         }else if(i == data.length){
             clearInterval(timer);
             state = 0;
-            data[i-1].style.background = "#fff";
+            data[i-1].className = ""; 
+            data = [];
         }
         i++;
     },500);
@@ -63,3 +108,4 @@ function set(data){
 String.prototype.trim=function() {
     return this.replace(/(^\s*)|(\s*$)/g,'');
 }
+seach()
