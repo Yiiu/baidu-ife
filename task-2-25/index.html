@@ -2,10 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    </style>
+    <title>task-2-25</title>
+    <link href="task.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<!--
+树的结构：
+root: <div root>
+        <ul child>
+title:    <span name></span>
+          <li>
+child:      <div root>..
+          </li>
+        </ul>
+      </div>
+ -->
+  <div class="box">
+    <div class="root tree">
+      <span class="title">root</span>
+      <svg width="20" height="20" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g class="transform-group">
+          <g transform="scale(0.1953125, 0.1953125)">
+            <path d="M936.96 451.413333 570.88 451.413333 570.88 85.333333 451.413333 85.333333 451.413333 451.413333 85.333333 451.413333 85.333333 570.88 451.413333 570.88 451.413333 936.96 570.88 936.96 570.88 570.88 936.96 570.88Z" fill="#fff"></path>
+          </g>
+        </g>
+      </svg>
+      <ul class="child 1sh">
+        <li>
+          <div class="root">
+            <span class="title">root-child-1</span>
+            <ul class="child 2s">
+              <div class="root">
+                <span class="title">child-1-1</span>
+                <ul>
+                  <li>
+                    <div class="root">
+                      <span class="title">child-1-1-1</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="rightKey">
+    <div class="add">添加</div>
+    <div class="del">删除</div>
+  </div>
 </body>
     <script src="task.js"></script>
 </html>

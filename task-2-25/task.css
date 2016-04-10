@@ -1,0 +1,53 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Arial,'Microsoft Yahei','Segoe UI' !important;
+}
+li{
+  list-style: none;
+}
+svg{
+  float: right;
+  position: relative;
+  top: 13px;
+  left: -20px;
+}
+.box{
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+}
+.root{
+  width: 200px;
+  height: 45px;
+  line-height: 45px;
+  font-size: 20px;
+  color: #1BBC9D;
+  background: #ECF0F1;
+}
+.tree{
+  color: #fff;
+  border-top-right-radius: 15px;
+  background: #1BBC9D;
+}
+.title{
+  margin-left: 10px;
+}
+.rightKey{
+  width: 50px;
+  height: 75px;
+  padding: 5px;
+  box-shadow: 0 0 5px 4px #ccc;
+  border-radius: 5px;
+  background: rgba(240, 240, 240, 0.5);;
+}
+.rightKey div{
+  cursor: pointer;
+  padding-top:10px;
+  text-align: center;
+  margin: 0 auto;
+  width:40px;
+}
+.rightKey div:hover{
+  color: #1BBC9D;
+}
