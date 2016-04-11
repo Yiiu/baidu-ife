@@ -3,6 +3,35 @@
   padding: 0;
   font-family: Arial,'Microsoft Yahei','Segoe UI' !important;
 }
+.box {
+  width:400px;
+  margin: 0 auto;
+}
+.root ul{
+  padding-left: 25px;
+}
+.title {
+  padding-left: 17px;
+  cursor: pointer;
+}
+.open>span.title{
+  background: url(img/2.png) no-repeat;
+  background-position: 0px 3px;
+}
+.open ul{
+  display: block;
+}
+.shut .title{
+  background: url(img/1.png) no-repeat;
+  background-position: 20px 3px;
+}
+.shut ul{
+  display: none;
+}
+.doc {
+  background: url(img/wendang.png) no-repeat;
+  background-position: 20px 3px; 
+}
 li{
   list-style: none;
 }
@@ -11,27 +40,6 @@ svg{
   position: relative;
   top: 13px;
   left: -20px;
-}
-.box{
-  margin: 0 auto;
-  width: 500px;
-  height: 500px;
-}
-.root{
-  width: 200px;
-  height: 45px;
-  line-height: 45px;
-  font-size: 20px;
-  color: #1BBC9D;
-  background: #ECF0F1;
-}
-.tree{
-  color: #fff;
-  border-top-right-radius: 15px;
-  background: #1BBC9D;
-}
-.title{
-  margin-left: 10px;
 }
 .rightKey{
   width: 50px;
