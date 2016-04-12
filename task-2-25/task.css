@@ -11,26 +11,27 @@
   padding-left: 25px;
 }
 .title {
-  padding-left: 17px;
   cursor: pointer;
+  padding-left: 17px;
 }
 .open>span.title{
   background: url(img/2.png) no-repeat;
   background-position: 0px 3px;
 }
-.open ul{
-  display: block;
+.wendang>span.title{
+  background: url(img/wendang.png) no-repeat;
+  background-position: 0px 3px;
 }
-.shut .title{
+.shut>span.title{
   background: url(img/1.png) no-repeat;
-  background-position: 20px 3px;
+  background-position: 0px 3px;
 }
-.shut ul{
+.shut>div{
   display: none;
 }
 .doc {
   background: url(img/wendang.png) no-repeat;
-  background-position: 20px 3px; 
+  background-position: 0px 3px;
 }
 li{
   list-style: none;
