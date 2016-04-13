@@ -42,13 +42,19 @@ svg{
   top: 13px;
   left: -20px;
 }
+.find{
+  width:400px;
+  margin: 0 auto;
+}
 .rightKey{
+  position: absolute;
+  float:left;
   width: 50px;
   height: 75px;
   padding: 5px;
   box-shadow: 0 0 5px 4px #ccc;
   border-radius: 5px;
-  background: rgba(240, 240, 240, 0.5);;
+  background: rgba(240, 240, 240, 0.9);
 }
 .rightKey div{
   cursor: pointer;
@@ -59,4 +65,10 @@ svg{
 }
 .rightKey div:hover{
   color: #1BBC9D;
+}
+.none{
+  display: none;
+}
+.test>span{
+  color: red;
 }

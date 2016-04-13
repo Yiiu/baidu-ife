@@ -11,6 +11,7 @@ var rootNode = function(obj){
   this.node = obj.node;     // 插入子元素
   this.node.nodes = this;
 }
+var arr = [];
 /*
  * 添加
  * 删除
@@ -19,9 +20,12 @@ var rootNode = function(obj){
 rootNode.prototype = {
   // 添加节点和元素
   addChild:function(type){
-    if(type === "" || type === null){
-      alert("请输入添加的节点的名字");
-      return;
+    if(!type){
+      var type = prompt("请输入您的名字", "");
+      if(type == null){
+        alert("请输入添加的节点的名字");
+        return;
+      }
     }
     var newdiv = document.createElement("div");
     newdiv.className = "root";
@@ -68,6 +72,9 @@ rootNode.prototype = {
   },
   del:function(){
     // 假如有儿子，连同儿子一起删除
+    if(this.parent === null){
+      alert("根节点不能删除~");
+    }
     if(this.child.length !==0){
       for(var i = 0;i<this.child.length;i++){
         this.child[i].del();
@@ -75,22 +82,91 @@ rootNode.prototype = {
     }
     this.element.parentNode.removeChild(this.element);
     for(var j=0;j<this.parent.child.length;j++){
-      if(this.parent.child[j] == this){
+      if(this.parent.child[j] === this){
         this.parent.child.splice(i, 1);
-        return;
       }
     }
-    console.log(this.parent.element);
-    console.log(this.element);
   },
   name:function(t){
     this.title = t;
     var my = this.element.getElementsByTagName("span")[0];
     my.innerHTML = t;
     return this;
+  },
+  find:function(e){
+    if(e ===null || e === ""){
+      alert("请输入要查询的字符");
+      return;
+    }
+    if(root.title == e){
+      arr.push(root);
+    }
+    for(var i = 0;i<this.child.length;i++){
+      this.child[i].find(e);
+      if(this.child[i].title == e){
+        arr.push(this.child[i]);
+        console.log(arr);
+      }
+    }
+  },
+}
+// 所有的绑定事件
+function handle(){
+  var key = document.getElementById("key");
+  var add = document.getElementById("add");
+  var del = document.getElementById("del");
+  var findText = document.getElementById("find-text");
+  var findBnt = document.getElementById("find-bnt");
+  var els = null;
+  // 右键菜单的事件委托
+  root.element.addEventListener("mousedown",function(e){
+    var oEvent = e||window.event;
+    // 右键打开菜单栏 左键
+    if(oEvent.target.nodeName === "SPAN"){
+      var el = e.target || e.srcElement;
+      els = el.parentNode.nodes;
+      if(oEvent.button==2){
+        var x = oEvent.clientX;
+        var y = oEvent.clientY;
+        if(/none/.test(key.className)){
+          key.className = key.className.replace(/none/,"");
+        }
+        key.style.top = y+"px";
+        key.style.left = x+"px";
+      }
+      if(oEvent.button==0){
+        if(!/none/.test(key.className)){
+          key.className += "none";
+        }
+      }
+    }
+  });
+  // 添加元素
+  add.addEventListener("click",function(e){
+    key.className += "none";
+    els.addChild().unfold();
+  });
+  // 删除元素
+  del.addEventListener("click",function(e){
+    key.className += "none";
+    els.del();
+  });
+  findBnt.onclick = function(){
+    if(arr.length){
+      for(var j=0;j<arr.length;j++){
+        arr[j].node.className = arr[j].node.className.replace(/ test/,"");
+      }
+      arr = [];
+    }
+    root.find(findText.value);
+    for(var i=0;i<arr.length;i++){
+      arr[i].node.className += " test"
+    }
   }
 }
-var root = new rootNode({parent:null,child:[],element:document.getElementById("root"),node:document.getElementById("node")});
+
+var root = new rootNode({parent:null,child:[],element:document.getElementById("root"),node:document.getElementById("node"),title:"root"});
+/* 折叠 */
 root.element.addEventListener("click",function(e){
   var e = e.target || e.srcElement ;
   if(e.nodeName == "SPAN"){
@@ -102,3 +178,34 @@ root.element.addEventListener("click",function(e){
 root.addChild("me").addChild("hello").addChild("world").unfold();
 root.child[0].addChild("me1").addChild("lalal").unfold();
 root.child[2].addChild("hey").unfold();
+handle();
+
+
+
+
+
+
+
+
+
+
+
+function nocontextmenu(){
+ event.cancelBubble = true
+ event.returnValue = false;
+ return false;
+}
+function norightclick(e){
+ if (window.Event){
+  if (e.which == 2 || e.which == 3)
+  return false;
+ }
+ else
+  if (event.button == 2 || event.button == 3){
+   event.cancelBubble = true
+   event.returnValue = false;
+   return false;
+  }
+}
+document.oncontextmenu = nocontextmenu; // for IE5+
+document.onmousedown = norightclick; // for all others

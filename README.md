@@ -10,14 +10,15 @@
 - [x] task-2-14
 - [x] task-2-15
 - [x] task-2-16
-- [ ] task-2-17 
+- [ ] task-2-17
 - [x] task-2-18
 - [x] task-2-19
 - [x] task-2-20
 - [x] task-2-21
 - [x] task-2-22
 - [x] task-2-23
-- [ ] task-2-25
+- [x] task-2-25
+- [ ] task-2-26
 
 # IFE春季班第一阶段任务
 
