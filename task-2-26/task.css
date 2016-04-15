@@ -3,38 +3,127 @@
   padding: 0;
 }
 body {
-  background: #131313;
+  background: #282C34;
 }
 .space {
-  z-index: 1;
   position: absolute;
-  top:0;
-  left:0;
-  margin:0 auto;
-  width: 100%;
-  height: 100%;
+  left: 50%;
+  top: 50%;
+  margin-left: -300px;
+  margin-top: -400px;
+  z-index: 1;
+  width: 600px;
+  height: 600px;
 }
 .sun {
   position: absolute;
-  top:50%;
-  left:50%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
   width: 150px;
   height: 150px;
-  margin: -75px 0 0 -75px;
-  border-radius: 100px;
-  background: #FF8C55;;
+  border-radius: 50%;
+  background: #DA6870;
   box-shadow: 0 0 50px 10px #FF5200;;
 }
 .console {
+  left:0;
+  position:fixed;
+  bottom:0;
+  z-index:999;
+  min-width:1000px;
+  width: 100%;
+  height:150px;
+  border: 1px solid #ccc;
   z-index: 999;
-  color:#fff;
+  color:#DA6870;
+  background: rgba(33, 33, 33, 0.92);
+}
+.ve {
+  border-left: 1px solid #ccc;
+  height:150px;
+  text-align: center;
+  min-width:200px;
+  width:24.8%;
+  float:left;
+}
+.command {
+  z-index: 999;
+  background: rgba(33, 33, 33, 0.92);
+  padding-left:10px;
+  border: 1px solid #ccc;
+  width:250px;
+  height: 250px;
+  position:fixed;
+  bottom:151px;
+  color: #DA6870;
+}
+.command h1 {
+  color: #6AB979;
+}
+.zhiling{
+  height:40px;
+}
+.cmd {
+  height:210px;
+  width:250px;
+  overflow-y:auto;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+}
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.console h1 {
+  color: #6AB979;
+}
+.vessela {
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  border:1px solid #ccc;
 }
 .vessel {
   position: absolute;
-  top:50%;
-  left:50%;
-  width: 300px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  border-radius: 50%;
+  border:1px solid #ccc;
+  margin: auto;
+ }
+.vessels {
+  width:100%;
+  height: 100%;
+}
+.a {
+  width:600px;
+  height: 600px;
+}
+.b {
+  width:500px;
+  height: 500px;
+}
+.c {
+  width:400px;
+  height: 400px;
+}
+.d {
+  width:300px;
   height: 300px;
-  border-radius: 200px;
-  border:1px solid #fff;
 }
