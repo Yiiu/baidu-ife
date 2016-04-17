@@ -8,9 +8,8 @@ body {
 .space {
   position: absolute;
   left: 50%;
-  top: 50%;
   margin-left: -300px;
-  margin-top: -400px;
+  margin-top: 100px;
   z-index: 1;
   width: 600px;
   height: 600px;
@@ -113,13 +112,15 @@ body {
   margin: 0 auto;
 }
 .vessels .huojian {
+  position: relative;
   width: 110px;
-  height:50px;
+  top: -25px;
+  height: 50px;
   line-height: 50px;
   background: url(huojian.png) no-repeat;
   background-size: 50px 50px;
   background-position: center 0px;
-  margin: -25px auto 0 auto;
+  margin: 0 auto;
 }
 .vessels .status {
   position:relative;
@@ -131,6 +132,22 @@ body {
   background:rgba(33, 33, 33, 0.92);
   text-align:center;
   color: #DA6870;
+}
+.vessels .energy {
+  position: relative;
+  top: -81px;
+  left: 49px;
+  width: 50px;
+  height: 12px;
+  line-height: 25px;
+  background: rgba(33, 33, 33, 0.92);
+  text-align: center;
+  color: #DA6870;
+}
+.energy .baifen {
+  background: green;
+  transition: 0.1s;
+  height:100%;
 }
 .a {
   width:600px;
@@ -148,6 +165,6 @@ body {
   width:300px;
   height: 300px;
 }
-.none {
+.none>div {
   display: none;
 }
