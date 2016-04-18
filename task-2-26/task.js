@@ -84,10 +84,14 @@ vessel.prototype = {
     }
   },
 }
-var a = new vessel({element:document.getElementsByClassName("vessels")[0],prepare:false,status:false});
+var ve1 = new vessel({element:document.getElementsByClassName("vessels")[0],prepare:false,status:false});
+var ve2 = new vessel({element:document.getElementsByClassName("vessels")[1],prepare:false,status:false});
+var ve3 = new vessel({element:document.getElementsByClassName("vessels")[2],prepare:false,status:false});
+var ve4 = new vessel({element:document.getElementsByClassName("vessels")[3],prepare:false,status:false});
+
 function childs(obj,cls){
   for(var i = 0;i<obj.children.length;i++){
-    if(obj.children[i].className == cls){
+    if(obj.children[i].className == cls || obj.children[i].id == cls){
       return obj.children[i];
     }else if(obj.children[i].children.length != 0){
       childs(obj.children[i],cls);

@@ -48,8 +48,10 @@ body {
   width:24.8%;
   float:left;
 }
+.ve p{
+  margin-top: 10px;
+}
 .command {
-  z
   background: rgba(33, 33, 33, 0.92);
   padding-left:10px;
   border: 1px solid #ccc;
@@ -57,7 +59,10 @@ body {
   height: 250px;
   position:fixed;
   bottom:151px;
-  color: #DA6870;
+  color: #6AB979;
+}
+.command p.err{
+  color:#DA6870;
 }
 .command h1 {
   color: #6AB979;
@@ -167,4 +172,10 @@ body {
 }
 .none>div {
   display: none;
+}
+.add {
+  cursor: pointer;
+  font-size: 64px;
+  width: 70px;
+  margin: 0 auto;
 }
