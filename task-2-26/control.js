@@ -44,16 +44,23 @@ control.prototype = {
     }
   },
   create:function(){
+    var that = this;
     if(this.loss()){
       if(this.commond == "init"){
         this.commond = "nof";
         this.cmd("创建了飞船");
-        this.vessel.pre();
+        var a = setInterval(function(){
+          that.vessel.pre();
+          clearInterval(a);
+        },1000)
         this.addEle();
       }else{
         this.commond = "init";
         this.cmd("摧毁了飞船");
-        this.vessel.pre();
+        var a = setInterval(function(){
+          that.vessel.pre();
+          clearInterval(a);
+        },1000)
         this.addEle();
       }
     }else {
@@ -69,16 +76,23 @@ control.prototype = {
     }
   },
   fl:function(){
+    var that = this;
     if(this.loss()){
       if(this.commond == "nof"){
         this.commond = "yef";
         this.cmd("开始飞行");
-        this.vessel.sta();
+        var a = setInterval(function(){
+          that.vessel.sta();
+          clearInterval(a);
+        },1000)
         this.addEle();
       }else if(this.commond == "yef"){
         this.commond = "nof";
         this.cmd("停止飞行");
-        this.vessel.sta();
+        var a = setInterval(function(){
+          that.vessel.sta();
+          clearInterval(a);
+        },1000)
         this.addEle();
       }
     }else {
@@ -102,6 +116,7 @@ control.prototype = {
       this.cmd("丢包了!!!!!!!!!!!!!!");
       return false;
     }
+    return true;
   },
   // 所有指令都打印到cmd上
   cmd:function(text){

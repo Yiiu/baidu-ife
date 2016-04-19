@@ -10,8 +10,8 @@ vessel.prototype = {
   // false 不在 true 在
   pre:function(){
     if(this.prepare === true){
+      this.stop();
       this.prepare = false;
-      this.element.className += " none";
     }else{
       this.element.className = this.element.className.replace(/ none/,"");
       this.prepare = true;
@@ -76,6 +76,15 @@ vessel.prototype = {
   },
   // 停止飞行
   stop:function(){
+    var en = childs(this.element,"energy");
+    var baifen = childs(en,"baifen");
+    this.prepare = false;
+    this.status = false;
+    this.energy = 100;
+    this.jo = 0;
+    this.element.className += " none";
+    this.element.style = "";
+    baifen.style.width = 100 + "%";
     if(this.Ftimer){
       clearInterval(this.Ftimer);
     }
