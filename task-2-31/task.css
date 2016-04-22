@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lucida Grande','Helvetica Neue',Helvetica,Arial,Verdana,'PingFang SC','Hiragino Sans GB',STHeiti,'Microsoft YaHei','WenQuanYi Micro Hei','WenQuanYi Micro Hei Mono','WenQuanYi Zen Hei','WenQuanYi Zen Hei Mono','Noto Sans CJK SC','Source Han Sans CN',SimSun,sans-serif;
+}
+.content {
+  width:600px;
+  margin: 60px auto ;
+  font-size: 32px;
+}
+.content>span {
+  line-height: 60px;
+}
+.bnt {
+  width: 140px;
+  margin:0 auto;
+}
+.bnt a{
+  -webkit-transition: all 0.3s;
+  display:inline-block;
+  width: 140px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 32px;
+  background: #2E78B9;
+  color: #fff;
+  cursor: pointer;
+}
+.bnt a:hover {
+  box-shadow: 0 0 10px 2px #ccc;
+}
+#texts {
+  display: inline-block;
+  position: absolute;
+}
+#texts p {
+  padding-top: 5px;
+  padding-left: 10px;
+  font-size: 24px;
+  color: #B2B2B2;
+}
+.err .text {
+  border: 1px solid #DD000F;
+ }
+.err p#prompt {
+  color: #DD000F;
+ }
+.err .text:focus {
+  box-shadow: 0 0 10px #DD000F;
+ }
+.ye .text {
+  border: 1px solid #61BA46;
+}
+.ye p#prompt {
+  color: #61BA46;
+}
+.ye .text:focus {
+  box-shadow: 0 0 10px #61BA46;
+}
+.text {
+  -webkit-transition: all 0.3s;
+  width: 450px;
+  height: 60px;
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+  font-size: 32px;
+  border: 1px solid #ccc;
+  outline:none;
+}
+.text:focus {
+  box-shadow: 0 0 10px #ccc;
+}
+.wait {
+  font-size: 32px;
+}
+.none {
+  display: none;
+}
+.occupation {
+  width: 300px;
+  margin: 0 auto;
+  text-align:center;
+}
+.school {
+  width: 260px;
+  margin: 0 auto 20px auto;
+  font-size: 24px;
+}
