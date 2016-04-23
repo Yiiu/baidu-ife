@@ -117,10 +117,10 @@ function move(){
   bnt.onclick = function(){
     var value = document.getElementsByClassName("text")[0].value;
     switch (value){
-      case "top":
+      case "up":
         block.action("top");
       break;
-      case "bottom":
+      case "down":
         block.action("bottom");
       break;
       case "left":
