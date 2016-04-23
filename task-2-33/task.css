@@ -1,6 +1,11 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
+  font-family: 'Lucida Grande','Helvetica Neue',Helvetica,Arial,Verdana,'PingFang SC','Hiragino Sans GB',STHeiti,'Microsoft YaHei','WenQuanYi Micro Hei','WenQuanYi Micro Hei Mono','WenQuanYi Zen Hei','WenQuanYi Zen Hei Mono','Noto Sans CJK SC','Source Han Sans CN',SimSun,sans-serif;
+}
+.me{
+  overflow: hidden;
+  height: 630px;
 }
 .box {
   margin: 70px auto 0 auto;
@@ -45,8 +50,79 @@
 .across>div:last-child{
   border-right:none;
 }
+.text{
+  width: 200px;
+}
 #as{
   height: 30px;
   background: red;
   border-top: 20px solid blue;
+  transition: all 0.1s;
+}
+.left{
+  transform: rotate(-90deg);
+}
+.right{
+  transform: rotate(90deg);
+}
+.top{
+  transform: rotate(0deg);
+}
+.bottom{
+  transform: rotate(180deg);
+}
+
+
+
+.text-con {
+  width:600px;
+  margin: 50px auto 0 auto;
+  font-size: 32px;
+}
+.text-con>span {
+  line-height: 60px;
+}
+.bnt {
+  z-index: 999;
+  -webkit-transition: all 0.3s;
+  float:right;
+  width: 140px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 32px;
+  background: #2E78B9;
+  color: #fff;
+  cursor: pointer;
+}
+.bnt:hover {
+  box-shadow: 0 0 10px 2px #ccc;
+}
+#texts {
+  z-index: 1;
+  display: inline-block;
+  position: absolute;
+}
+#texts p {
+  padding-top: 5px;
+  padding-left: 10px;
+  font-size: 24px;
+  color: #B2B2B2;
+}
+.text {
+  -webkit-transition: all 0.3s;
+  width: 320px;
+  height: 60px;
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+  font-size: 32px;
+  border: 1px solid #ccc;
+  outline:none;
+}
+.text:focus {
+  box-shadow: 0 0 10px #ccc;
 }
