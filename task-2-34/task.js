@@ -155,7 +155,7 @@ var cc = function(){
 function move(){
   var bnt = document.getElementsByClassName("bnt")[0];
   document.onkeydown = function(){
-    var e = event || window.event ;
+    var e = window.event ;
     // 按w键或者上键
     if(e && e.keyCode == 87 || e && e.keyCode == 38){
       block.mov("top");
