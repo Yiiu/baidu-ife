@@ -10,7 +10,7 @@ var cc = function(){
 }
 function move(){
   var bnt = document.getElementsByClassName("bnt")[0];
-  document.onkeydown = function(){
+  /*document.onkeydown = function(){
     var e = window.event ;
     // 按w键或者上键
     if(e && e.keyCode == 87 || e && e.keyCode == 38){
@@ -25,50 +25,10 @@ function move(){
     }else if(e && e.keyCode == 68 || e && e.keyCode == 39){
       block.mov("right");
     }
-  }
+  }*/
   bnt.onclick = function(){
-    var value = document.getElementsByClassName("text")[0].value;
-    switch (value){
-      case "TUNTOP":
-        block.action("top");
-      break;
-      case "TUNBAC":
-        block.action("bottom");
-      break;
-      case "TUNLEF":
-        block.action("left");
-      break;
-      case "TUNRIG":
-        block.action("right");
-      break;
-      case "GO":
-        block.action("go");
-      break;
-      case "TRALEF":
-        block.tra("right");
-      break;
-      case "TRATOP":
-        block.tra("right");
-      break;
-      case "TRARIG":
-        block.tra("right");
-      break;
-      case "TRABOT":
-        block.tra("right");
-      break;
-      case "MOVLEF":
-        block.mov("right");
-      break;
-      case "MOVTOP":
-        block.mov("right");
-      break;
-      case "MOVRIG":
-        block.mov("right");
-      break;
-      case "MOVBOT":
-        block.mov("right");
-      break;
-    }
+    alert(1)
+    cmd.value();
   }
 }
 var scroll = function(){

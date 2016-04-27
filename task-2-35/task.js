@@ -159,28 +159,28 @@ var block = {
         block.action("go");
       break;
       case "TRALEF":
-        block.tra("right");
+        block.tra("left");
       break;
       case "TRATOP":
-        block.tra("right");
+        block.tra("top");
       break;
       case "TRARIG":
         block.tra("right");
       break;
       case "TRABOT":
-        block.tra("right");
+        block.tra("bottom");
       break;
       case "MOVLEF":
-        block.mov("right");
+        block.mov("left");
       break;
       case "MOVTOP":
-        block.mov("right");
+        block.mov("top");
       break;
       case "MOVRIG":
         block.mov("right");
       break;
       case "MOVBOT":
-        block.mov("right");
+        block.mov("bottom");
       break;
     }
   },
@@ -189,10 +189,16 @@ var cmd = {
   state:{
     element:document.getElementsByClassName("text")[0],
     num:1,
+    nums:0,
     data:{},
     command:[
       "TUNTOP","TUNBAC","TUNLEF","TUNRIG","GO","TRALEF","TRATOP","TRARIG","TRABOT","MOVLEF","MOVTOP","MOVRIG","MOVBOT"
     ],
+  },
+  // chushihua
+  init:function(){
+    cmd.state.data = {};
+    cmd.state.nums = 0;
   },
   // 获取value，把他们的数据处理成:
   // nums:[st,num];   nums:命令的编号，从0开始;   st:命令的类型;    num:执行的次数;
@@ -203,38 +209,31 @@ var cmd = {
     for(var i=0;i<da.length;i++){
       var st = da[i].replace(/[^a-z]/ig,"");
       var num = da[i].replace(/[^0-9]/ig,"");
-      t.data[i] = [];
-      t.data[i].push(st);
-      t.data[i].push(num);
+      cmd.error(st,num);
     }
+    //yunxing
+    cmd.implement();
+    cmd.init();
   },
-  // 错误检测,如果正确，返回true
-  error:function(){
+  // 错误检测和添加正确的命令到data
+  error:function(st,num){
+    var s = cmd.state;
     var t = cmd.state.command;
     var nums = document.getElementsByClassName("nums");
-    for(var num in cmd.state.data){
-      var num = 0;
-      for(var i=0;i<t.length;i++){
-        if(t[i] == cmd.state.data[num][0]){
-          num = 1;
-        }
-      }
-      if(num == 0){
-        console.log("good")
-      }else{
-        nums[num].style.background = "red";
-        console.log("err")
+    var n = 0;
+    for(var i=0;i<t.length;i++){
+      if(t[i] == st){
+        n = 1;
       }
     }
-
-    for(var i=0;i<t.length;i++){
-      for(var num in cmd.state.data){
-        if(t[i] !== cmd.state.data[num][0]){
-          nums[num].style.background = "red";
-        }else{
-          return true;
-        }
-      }
+    if(n == 1){
+      s.data[s.nums] = [];
+      s.data[s.nums].push(st);
+      s.data[s.nums].push(num);
+      s.nums++;
+    }else{
+      nums[s.nums].style.background = "red";
+      s.nums++;
     }
   },
   rows: function(){
@@ -247,6 +246,9 @@ var cmd = {
   // 执行单个命令
   implement:function(st,num){
     var nums = 0;
+    if(!num){
+      num = 1;
+    }
     clearInterval(timer);
     var timer = setInterval(function(){
       if(nums == num){
@@ -255,18 +257,13 @@ var cmd = {
         block.imp(st);
       }
       nums++
-    },100);
+    },500);
   },
   // 遍历所有命令，执行implement()
   ergodic:function(){
     for(var num in cmd.state.data){
-      var timer = setInterval(function(){
-        if(nums == num){
-          clearInterval(timer);
-        }else{
-          block.imp(st);
-        }
-        nums++
+      var timer = setTimeout(function(){
+        cmd.implement(cmd.state.data[num][0],cmd.state.data[num][1])
       },100);
     }
   }
