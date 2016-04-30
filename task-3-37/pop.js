@@ -43,8 +43,12 @@ pop.prototype = {
     var meT = me.offsetTop;
     var meL = me.offsetLeft;
     var bnt = false;
-    document.addEventListener('mousedown',function(e){
-        mes.innerHTML = e.clientY - meT +","+ e.clientY;
+    document.addEventListener('mousemove',function(e){
+      var e = e || e.window;
+      var target = e.target || e.srcElement;
+      mes.innerHTML = target.id
+
+      //mes.innerHTML = e.clientY - meT +","+ e.clientY;
     }, false); 
   },
 };
