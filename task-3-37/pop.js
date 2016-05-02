@@ -4,7 +4,11 @@ var pop = function(obj){
   this.content = obj.content; // neirong
   this.state = obj.state;   // zhuangtai
   this.drag = obj.drag;   // shifo tuodong
+  this.define = obj.define;
+  this.cancel = obj.cancel;
+  this.element = obj.element;
   this.init();
+  this.bnt();
 }
 pop.prototype = {
   init:function(){
@@ -70,17 +74,33 @@ pop.prototype = {
       }
     });
   },
-  back:{
-    confirm:return e,
+  bnt:function(){
+    var gou = this.element.getElementsByClassName("gou")[0];
+    var cha = this.element.getElementsByClassName("cha")[0];
+    var that = this;
+    gou.addEventListener("click",this.define);
+    cha.addEventListener("click",function(e){
+      that.shut();
+      that.define();
+    });
+  },
+  shut:function(){
+    console.log(this)
+    this.element.className += " none";
+    this.state = false;
+  },
+  on:function(){
+    this.element.className.
   },
 };
 var pops = new pop({
   parent:document.getElementsByClassName("aa")[0],
   title:"hello world",
   content:"hello javascript",
-  back:{
-    confirm:function(){
-      alert(1)
-    }
+  define:function(){
+    alert(1);
+  },
+  cancel:function(){
+    alert(2);
   },
 });

@@ -71,3 +71,6 @@ div.select>div.cha{
 div.select>div:hover{
 	background-color:#ccc;
 }
+.none {
+	display: none;
+}
