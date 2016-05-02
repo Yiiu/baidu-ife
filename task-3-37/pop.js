@@ -4,6 +4,7 @@ var pop = function(obj){
   this.content = obj.content; // neirong
   this.state = obj.state;   // zhuangtai
   this.drag = obj.drag;   // shifo tuodong
+  this.init();
 }
 pop.prototype = {
   init:function(){
@@ -16,6 +17,7 @@ pop.prototype = {
     this.add();
     this.drags();
   },
+  // 输出html
   add:function(){
     var div = document.createElement("div");
     div.className = "yiiuPop";
@@ -35,26 +37,50 @@ pop.prototype = {
     this.parent.appendChild(div);
     this.element = div;
   },
+  // 拖动
   drags:function(){
     var me = this.element.getElementsByClassName("popContent")[0];
-    var mes = me.getElementsByClassName("content")[0];
-    var meH = me.offsetHeight;
-    var meW = me.offsetWidth;
-    var meT = me.offsetTop;
-    var meL = me.offsetLeft;
-    var bnt = false;
-    document.addEventListener('mousemove',function(e){
-      var e = e || e.window;
-      var target = e.target || e.srcElement;
-      mes.innerHTML = target.id
-
-      //mes.innerHTML = e.clientY - meT +","+ e.clientY;
-    }, false); 
+        mes = me.getElementsByClassName("content")[0],
+        meH = me.offsetHeight,      // 长度
+        meW = me.offsetWidth,       // 宽度
+        meT = me.offsetTop,         // 顶部的距离
+        meL = me.offsetLeft,        // 左边的距离
+        bnt = false;
+        xy = []
+    me.addEventListener("mousedown",function(e){
+      bnt = true;
+      xy = [e.clientX - me.offsetLeft,e.clientY - me.offsetTop];
+      if(bnt){
+        me.onmousemove = function(e){
+          if(!bnt){
+            return;
+          }else{
+            me.style.cursor = "move";
+            me.style.top = e.clientY -xy[1] + "px";
+            me.style.marginTop = 0;
+            me.style.left = e.clientX -xy[0] + "px";
+            me.style.marginLeft = 0;        
+          }
+        }
+        me.onmouseup = function(){
+          bnt = false;
+          me.style.cursor = "default";
+          me.onmousemove = null;
+        }
+      }
+    });
+  },
+  back:{
+    confirm:return e,
   },
 };
 var pops = new pop({
   parent:document.getElementsByClassName("aa")[0],
   title:"hello world",
-  content:"hello javascript"
+  content:"hello javascript",
+  back:{
+    confirm:function(){
+      alert(1)
+    }
+  },
 });
-pops.init();
