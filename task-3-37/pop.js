@@ -8,7 +8,6 @@ var pop = function(obj){
   this.cancel = obj.cancel;
   this.element = obj.element;
   this.init();
-  this.bnt();
 }
 pop.prototype = {
   init:function(){
@@ -20,6 +19,7 @@ pop.prototype = {
     }
     this.add();
     this.drags();
+    this.bnt();
   },
   // 输出html
   add:function(){
@@ -78,10 +78,19 @@ pop.prototype = {
     var gou = this.element.getElementsByClassName("gou")[0];
     var cha = this.element.getElementsByClassName("cha")[0];
     var that = this;
-    gou.addEventListener("click",this.define);
+    gou.addEventListener("click",function(){
+      if(that.define){
+        that.define()
+      }else{return}
+    });
     cha.addEventListener("click",function(e){
-      that.shut();
-      that.define();
+      if(that.define){
+        that.shut();
+        that.define();
+      }else{
+        that.shut();
+        return;
+      }
     });
   },
   shut:function(){
@@ -98,7 +107,6 @@ pop.prototype = {
         num = num-5;
         that.element.style.opacity = num/100;
         pC.style.webkitTransform = "scale("+ num/100 +")";
-        console.log(num)
       }
     },10)
   },
@@ -108,6 +116,7 @@ pop.prototype = {
     var pC = that.element.getElementsByClassName("popContent")[0];
     this.element.className = that.element.className.replace(/ none/,"")
     this.state = true;
+    this.remove();
     clearInterval(that.zZ)
     that.zZ = setInterval(function(){
       if(num == 100){
@@ -119,5 +128,9 @@ pop.prototype = {
         console.log(num)
       }
     },10)
+  },
+  remove:function(){
+    var pC = this.element.getElementsByClassName("popContent")[0];
+    pC.style = ""; 
   },
 };
