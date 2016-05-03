@@ -85,22 +85,39 @@ pop.prototype = {
     });
   },
   shut:function(){
-    console.log(this)
-    this.element.className += " none";
-    this.state = false;
+    var that = this;
+    var num = 100;
+    var pC = that.element.getElementsByClassName("popContent")[0];
+    clearInterval(that.sS)
+    that.sS = setInterval(function(){
+      if(num == 0){
+        that.element.className += " none";
+        that.state = false;
+        clearInterval(that.sS)
+      }else{
+        num = num-5;
+        that.element.style.opacity = num/100;
+        pC.style.webkitTransform = "scale("+ num/100 +")";
+        console.log(num)
+      }
+    },10)
   },
   on:function(){
-    this.element.className.
+    var that = this;
+    var num = 0;
+    var pC = that.element.getElementsByClassName("popContent")[0];
+    this.element.className = that.element.className.replace(/ none/,"")
+    this.state = true;
+    clearInterval(that.zZ)
+    that.zZ = setInterval(function(){
+      if(num == 100){
+        clearInterval(that.zZ)
+      }else{
+        num = num+5;
+        that.element.style.opacity = num/100;
+        pC.style.webkitTransform = "scale("+ num/100 +")";
+        console.log(num)
+      }
+    },10)
   },
 };
-var pops = new pop({
-  parent:document.getElementsByClassName("aa")[0],
-  title:"hello world",
-  content:"hello javascript",
-  define:function(){
-    alert(1);
-  },
-  cancel:function(){
-    alert(2);
-  },
-});
