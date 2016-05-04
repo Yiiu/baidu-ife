@@ -15,11 +15,22 @@ table.prototype = {
         var header = document.createElement("tr");
         // 添加表头
         for(var i=0;i<this.data.header.length;i++){
-            header.innerHTML += "<td>"+ this.data.header[i] +"</td>";
+            if(this.data.me[i] == 1){
+                header.innerHTML += "<td>"
+                                                      +         this.data.header[i]
+                                                      +    "    <span class=sort-bnt>"
+                                                      +    "        <div class=top></div>"
+                                                      +    "        <div class=bottom></div>"
+                                                      +    "    </span>"
+                                                      +    "</td>";
+            }else{
+                header.innerHTML += "<td>"+ this.data.header[i] +"</td>";
+            }
         }
         table.appendChild(header);
+        // 添加表单本身
         for(var c in this.data.tbody){
-
+            
         }
         this.parent.appendChild(table);
     },
@@ -27,7 +38,7 @@ table.prototype = {
 var a = new table({
     parent:document.getElementById("box"),
     data:{
-        me    :["0","1","1","1"]
+        me      :["0","1","1","1"],
         header:["a","b","c","d"],
         tbody :{
             a:["1","2","2"],
