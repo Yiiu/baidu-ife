@@ -17,7 +17,7 @@
   </ul>
 
   <ul id="resort">
-    <!-- 
+    <!--
     <li>第一名：北京空气质量：<b>90</b></li>
     <li>第二名：北京空气质量：<b>90</b></li>
     <li>第三名：北京空气质量：<b>90</b></li>
@@ -80,10 +80,10 @@ function render(data) {
     var num = ["一","二","三","四","五","六","七"]
     var resort = document.getElementById("resort");
     for(var i=0;i<data.length;i++){
-        resort.innerHTML 
-            += "<li>第" 
-            + num[i] 
-            + "名:" 
+        resort.innerHTML
+            += "<li>第"
+            + num[i]
+            + "名:"
             + data[i][0]
             + "空气质量："
             + "<b>"
