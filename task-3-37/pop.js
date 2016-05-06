@@ -25,7 +25,7 @@ pop.prototype = {
   add:function(){
     var div = document.createElement("div");
     div.className = "yiiuPop";
-    div.innerHTML += 
+    div.innerHTML +=
     div.innerHTML += "  <div class='popContent'>"
                   +  "    <div class='popTop'>"
                   +  "      <h1>" + this.title + "</h1>"
@@ -63,7 +63,7 @@ pop.prototype = {
             me.style.top = e.clientY -xy[1] + "px";
             me.style.marginTop = 0;
             me.style.left = e.clientX -xy[0] + "px";
-            me.style.marginLeft = 0;        
+            me.style.marginLeft = 0;
           }
         }
         me.onmouseup = function(){
@@ -131,6 +131,6 @@ pop.prototype = {
   },
   remove:function(){
     var pC = this.element.getElementsByClassName("popContent")[0];
-    pC.style = ""; 
+    pC.style = "";
   },
 };

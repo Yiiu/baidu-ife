@@ -101,6 +101,6 @@ table.prototype = {
                 return
             }
         }
-    },
+    }
 }
 
