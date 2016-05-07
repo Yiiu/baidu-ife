@@ -2,15 +2,45 @@ li {
     display: inline-block;
     list-style-type: none;
 }
-ul.ym li{
-    width: 80px;
+.rili div.ym{
+text-align: center;
+}
+.rili .bnt {
+    cursor: pointer;
+    color: #ccc;
 }
 .rili {
     width: 400px;
-    height: 400px;
+    height: 430px;
     border: 1px solid #ccc;
+}
+.rili ul {
+    text-align: center;
+    padding: 0;
 }
 .rili ul li {
     width: 40px;
     height: 40px;
+    margin: 7px;
+    line-height: 40px;
+    transition: 0.3s;
+    text-align: center;
+}
+.rili ul.e {
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    font-weight: 700;
+}
+.rili div.days ul li{
+    border-radius: 40px;
+    text-align: center;
+    cursor: pointer;    
+    margin-top: 7px;
+}
+.rili div.days ul li:hover{
+    background: #ccc;
+}
+.def{
+    color: #ccc;
 }
