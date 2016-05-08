@@ -177,10 +177,10 @@ datas.prototype = {
                     that.lessen("w");
                 }
             }else if(/you/.test(e.target.className)){
-                if(/y/.test(e.target.className)){
-                    that.add("y");
-                }else{
+                if(/m/.test(e.target.className)){
                     that.add("w");
+                }else{
+                    that.add("y");
                 }
             }
         })
