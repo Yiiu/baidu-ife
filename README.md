@@ -25,9 +25,9 @@
 - [x] task-2-33
 - [x] task-2-34
 - [x] task-2-35
-- [x] task-2-37
-- [x] task-2-38
-- [x] task-2-40
+- [x] task-3-37
+- [x] task-3-38
+- [x] task-3-40
 
 # IFE春季班第一阶段任务
 
