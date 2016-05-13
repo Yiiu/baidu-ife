@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: #efefef;
+}
+/*                     nav                        */
+nav {
+    height: 50px;
+    line-height: 50px;
+    background: #EE7419;
+}
+nav>a {
+    transition: 0.3s ;
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+}
+nav>a:hover {
+    text-shadow: #000 0 0 5px;
+}
+nav>a.title {
+    display: inline-block;
+    width: 200px;
+    font-weight: 700;
+    font-size: 24px;
+    margin-left: 5%;
+}
+/*                   content                     */
