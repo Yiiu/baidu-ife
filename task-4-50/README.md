@@ -6,19 +6,20 @@
 
 结构：
 <pre>
-    .
-├─ dist                         // 编译文件
-├─ src                          //
+.
+├─ dist                   // 编译文件
+├─ src                    //
 │   ├─ components
 │   │   ├─ 404.vue        // 404页面
-│   │   ├─ app.vue        // 404页面
-│   │   ├─ home.vue       // 404页面
-│   │   ├─ list.vue       // 404页面
-│   │   ├─ nav.vue        // 404页面
-│   │   ├─ edit.vue       // 404页面
-│   │   └─ edit.vue       // 404页面
-│   ├─ data.js                  // 数据处理
-│   └─ main.js                  // 入口
+│   │   ├─ app.vue        // 主界面
+│   │   ├─ home.vue       // 首页
+│   │   ├─ list.vue       // 列表页
+│   │   ├─ nav.vue        // 头部
+│   │   ├─ edit.vue       // 修改
+│   │   └─ new.vue        // 新建页面
+│   │   └─ details.vue    // 详情页面
+│   ├─ data.js            // 数据处理
+│   └─ main.js            // 入口
 ├─ index.html
 ├─ package.json
 ├─ webpack.config.js
