@@ -14,3 +14,18 @@
 .table tbody tr:hover{
     background: #ddd;
 }
+.re{
+    color: #4CAF50;
+}
+.end{
+    color: #E81818;
+}
+/*  new  */
+.jumbotron h1.new-title{
+    text-align: center;
+    font-size: 24px;
+}
+.jumbotron input.new-title{
+    text-align: center;
+    font-size: 24px;
+}

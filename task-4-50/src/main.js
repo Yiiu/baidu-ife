@@ -6,6 +6,7 @@ import App from './components/app.vue';             // app
 import List from './components/list.vue';               // 列表页
 import Home from './components/home.vue';      // 主页
 import No from './components/404.vue';          // 404界面
+import New from './components/new.vue';          // 404界面
 
 
 vue.use(Router);
@@ -23,6 +24,10 @@ router.map({
     "/list" : {
         name: "list",
         component : List
+    },
+    "/new" : {
+        name: "new",
+        component : New
     }
 })
 router.redirect({
