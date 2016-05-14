@@ -1,30 +1,16 @@
-* {
-    padding: 0;
-    margin: 0;
+.gui-transition {
+  transition: all .5s ease;
+  overflow: hidden;
 }
-body{
-    background: #efefef;
+/* .gui-enter 定义进入的开始状态 */
+/* .gui-leave 定义离开的结束状态 */
+.gui-enter, .gui-leave {
+    height: 0;
+    opacity: 0;
 }
-/*                     nav                        */
-nav {
-    height: 50px;
-    line-height: 50px;
-    background: #EE7419;
+.table tbody tr {
+    transition: all .3s ease;
 }
-nav>a {
-    transition: 0.3s ;
-    text-decoration: none;
-    font-size: 16px;
-    color: #fff;
+.table tbody tr:hover{
+    background: #ddd;
 }
-nav>a:hover {
-    text-shadow: #000 0 0 5px;
-}
-nav>a.title {
-    display: inline-block;
-    width: 200px;
-    font-weight: 700;
-    font-size: 24px;
-    margin-left: 5%;
-}
-/*                   content                     */

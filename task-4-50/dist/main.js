@@ -54,20 +54,36 @@
 	
 	var _vueRouter2 = _interopRequireDefault(_vueRouter);
 	
-	var _data = __webpack_require__(4);
-	
-	var _data2 = _interopRequireDefault(_data);
-	
-	var _app = __webpack_require__(5);
+	var _app = __webpack_require__(4);
 	
 	var _app2 = _interopRequireDefault(_app);
+	
+	var _list = __webpack_require__(9);
+	
+	var _list2 = _interopRequireDefault(_list);
+	
+	var _home = __webpack_require__(11);
+	
+	var _home2 = _interopRequireDefault(_home);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	_vue2.default.use(_vueRouter2.default);
 	// 创建新实例
 	var router = new _vueRouter2.default();
-	
+	router.map({
+	    "/": {
+	        name: "Home",
+	        components: _home2.default
+	    },
+	    "/list": {
+	        name: "list",
+	        components: _list2.default
+	    }
+	});
+	router.redirect({
+	    "*": "/"
+	});
 	router.start(_app2.default, '#app');
 
 /***/ },
@@ -12922,21 +12938,15 @@
 
 /***/ },
 /* 4 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-/***/ },
-/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(6)
+	__vue_script__ = __webpack_require__(5)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/app.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(9)
+	__vue_template__ = __webpack_require__(8)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -12946,7 +12956,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/yuer/文档/vuejs/task/webpack-vue/task-50/src/components/app.vue"
+	  var id = "/home/yuer/文档/ife/baidu-ife/task-4-50/src/components/app.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -12955,7 +12965,7 @@
 	})()}
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12964,7 +12974,7 @@
 	    value: true
 	});
 	
-	var _nav = __webpack_require__(7);
+	var _nav = __webpack_require__(6);
 	
 	var _nav2 = _interopRequireDefault(_nav);
 	
@@ -12980,8 +12990,10 @@
 	// <template>
 	//     <div>
 	//         <navs></navs>
-	//         <div class="content">
-	//             <router-view></router-view>
+	//         <div class="container">
+	//             <div class="jumbotron">
+	//                 <router-view></router-view>
+	//             </div>
 	//         </div>
 	//         <footer></footer>
 	//     </div>
@@ -12989,11 +13001,11 @@
 	// <script>
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_template__ = __webpack_require__(8)
+	__vue_template__ = __webpack_require__(7)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -13003,7 +13015,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/yuer/文档/vuejs/task/webpack-vue/task-50/src/components/nav.vue"
+	  var id = "/home/yuer/文档/ife/baidu-ife/task-4-50/src/components/nav.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -13012,16 +13024,74 @@
 	})()}
 
 /***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<nav class=\"navbar navbar-default navbar-static-top\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" v-link=\"{ path: '/'}\">我的问卷</a>\n    </div>\n    <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n            <li><a v-link=\"{ path: '/list'}\" class=\"title\">调查问卷</a></li>\n        </ul>\n        <ul class=\"nav navbar-nav navbar-right\">\n            <li><a v-link=\"{ path: '/'}\" class=\"title\">新建问卷</a></li>\n        </ul>\n    </div>\n  </div>\n</nav>\n";
+
+/***/ },
 /* 8 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<nav>\n    <a v-link=\"{ path: '/'}\" class=\"title\">调查问卷</a>\n    <a v-link=\"{ path: '/'}\">我的问卷</a>\n</nav>\n";
+	module.exports = "\n<div>\n    <navs></navs>\n    <div class=\"container\">\n        <div class=\"jumbotron\">\n            <router-view></router-view>\n        </div>\n    </div>\n    <footer></footer>\n</div>\n";
 
 /***/ },
 /* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__vue_template__ = __webpack_require__(10)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/home/yuer/文档/ife/baidu-ife/task-4-50/src/components/list.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 10 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div>\n    <navs></navs>\n    <div class=\"content\">\n        <router-view></router-view>\n    </div>\n    <footer></footer>\n</div>\n";
+	module.exports = "\n<div>\n    <h1>List</h1>\n</div>\n";
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__vue_template__ = __webpack_require__(12)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/home/yuer/文档/ife/baidu-ife/task-4-50/src/components/home.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div>\n    <h1>欢迎光临</h1>\n</div>\n";
 
 /***/ }
 /******/ ]);

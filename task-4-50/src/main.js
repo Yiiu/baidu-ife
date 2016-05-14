@@ -1,10 +1,31 @@
 import vue from "vue";
 import Router from "vue-router";
-import data from "./data.js";
-import App from './components/app.vue';
+import data from './data.js';             // app
+
+import App from './components/app.vue';             // app
+import List from './components/list.vue';               // 列表页
+import Home from './components/home.vue';      // 主页
+import No from './components/404.vue';          // 404界面
+
 
 vue.use(Router);
 // 创建新实例
-var router = new Router(); 
-
+const router = new Router(); 
+router.map({
+    "/" : {
+        name:"Home",
+        component : Home
+    },
+    "/404": {
+        name: "404",
+        component: No
+    },
+    "/list" : {
+        name: "list",
+        component : List
+    }
+})
+router.redirect({
+    "*" : "/404"
+})
 router.start(App, '#app');    
