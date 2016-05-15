@@ -21,11 +21,77 @@
     color: #E81818;
 }
 /*  new  */
-.jumbotron h1.new-title{
+#new  h1.new-title{
+    margin:0;
+    height: 34px;
+    padding-top: 2px;
+    line-height: 1.42857143;
     text-align: center;
     font-size: 24px;
 }
-.jumbotron input.new-title{
+#new  h1.new-title:hover{
+    background: #fff;
+}
+#new  input.new-title{
+    margin: 0;
+    padding:0;
     text-align: center;
     font-size: 24px;
+    border :0;
+}
+#new .content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding:20px;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+}
+#new .adds {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+}
+#new .content .add{
+    height: 80px;
+    line-height: 80px;
+    background:#ddd;
+    color: #777;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+#new .content .adds .btns {
+    position: relative;
+    width: 205px;
+    margin: 10px auto 10px auto;
+}
+#new .content .question>div{
+    transition: 0.3s all;
+    position: relative;
+    padding: 10px;
+}
+#new .content .question>div:hover{
+    background: #dedede;
+}
+#new .content .question ul{
+    padding-left: 30px;
+}
+#new .content .question li{
+    list-style: none;
+}
+#new .content .question input{
+    margin-right: 5px;
+}
+#new .content .question textarea{
+    width: 100%;
+    max-width: 100%;
+}
+#new .content .question>div.btns{
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    height: 0;
+    font-size: 16px;
+}
+#new .content .question>div.btns .required{
+    top: 20px;
 }

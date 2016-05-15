@@ -25,3 +25,7 @@
 ├─ webpack.config.js
 
 </pre>
+
+
+
+event.currentTarget  // 获取当前元素
