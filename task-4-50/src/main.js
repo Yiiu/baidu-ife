@@ -1,12 +1,12 @@
 import vue from "vue";
 import Router from "vue-router";
-import data from './data.js';             // app
+import data from './data';             // app
 
-import App from './components/app.vue';             // app
-import List from './components/list.vue';               // 列表页
-import Home from './components/home.vue';      // 主页
-import No from './components/404.vue';          // 404界面
-import New from './components/new.vue';          // 404界面
+import App from './components/app';             // app
+import List from './components/list';               // 列表页
+import Home from './components/home';      // 主页
+import No from './components/404';          // 404界面
+import New from './components/new';          // 404界面
 
 
 vue.use(Router);

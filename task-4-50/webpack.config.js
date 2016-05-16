@@ -12,30 +12,12 @@ module.exports = {
             { test: /\.css$/, loader: 'style!css!autoprefixer'},
         ]
     },
-    vue: {
-        loaders: {
-            css: 'style!css!autoprefixer'
-        }
-    }, 
   babel: {
     presets: ['es2015', 'stage-0'],
     plugins: ['transform-runtime']
-  }
-}
-if (process.env.NODE_ENV === 'production') {
-  module.exports.plugins = [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.optimize.OccurenceOrderPlugin()
-  ]
-} else {
-  module.exports.devtool = '#source-map'
+  },    
+  resolve: {
+        // require时省略的扩展名，如：require('module') 不需要module.js
+        extensions: ['', '.js', '.vue']
+    }
 }
