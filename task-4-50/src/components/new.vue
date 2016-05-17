@@ -127,58 +127,5 @@ import question from "./question"
         width: 205px;
         margin: 10px auto 10px auto;
     }
-    #new .content .questions>div.question{
-        transition: 0.3s all;
-        position: relative;
-        padding: 10px;
-    }
-    #new .content .questions>div.question:hover{
-        background: #dedede;
-    }
-    #new .content .questions ul{
-        padding-left: 30px;
-    }
-    #new .content .questions li{
-        list-style: none;
-    }
-    #new .content .questions li.q_add{
-        cursor: pointer;
-        text-align: center;
-        font-size: 18px;
-        border: 2px dashed #ccc;
-        box-shadow: 10px;
-        border-radius: 2px;
-        opacity: 0;
-    }
-    #new .content .questions li.q_add:hover{
-        opacity: 1;
-    }
-    #new .content .questions input{
-        margin-right: 5px;
-    }
-    #new .content .questions textarea{
-        width: 100%;
-        max-width: 100%;
-    }
-    #new .content .questions .required{
-        position: absolute;
-        top: 5px;
-        right: 10px;
-        height: 0;
-        font-size: 10px;
-    }
-    #new .content .questions .fun{
-        position: absolute;
-        bottom: 20px;
-        right: 10px;
-        height: 0;
-        font-size: 10px;
-    }
-    #new .content .questions .question h4 {
-        height: 21px;
-    }
-    #new .content .questions .question input {
-        width: auto;
-        border: 0;
-    }
+
 </style>
