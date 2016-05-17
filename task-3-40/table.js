@@ -185,5 +185,4 @@ datas.prototype = {
             }
         })
     },
-
 }

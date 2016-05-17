@@ -3,63 +3,22 @@
 
 <template>
     <div transition="gui" id="new">
-        <n_title :text="'请输入标题'" :class="'new-title'" :iclass="'form-control new-title'"></n_title>
+        <n_title :text='"请输入标题"' :class="'new-title'" :iclass="'form-control new-title'"></n_title>
         <div class="content">
-            <div class="questions">
-                <div class="n_radio question">
-                    <h4>
-                        Q1 
-                        <span>
-                            <n_title :text="'请输入问题'" :class="''" :iclass="''"></n_title>
-                        </span>
-                    </h4>
-                    <ul>
-                        <li>
-                            <input type="radio" name="q1"/><n_title :text="'选择一'" :class="''" :iclass="''">
-                        </li>
-                        <li>
-                            <input type="radio" name="q1"/><n_title :text="'选择二'" :class="''" :iclass="''">
-                        </li>
-                        <li class="q_add">+</li>
-                    </ul>
-                        <!--必填按钮-->
-                    <div class="required btns">
-                        <input type="checkbox" name="question"/><span>此题是否必填</span>
-                    </div>
-                    <!--功能按钮-->
-                    <div class="fun btns">
-                        <span>上移</span>
-                        <span>下移</span>
-                        <span>复用</span>
-                        <span>删除</span>
-                    </div>
-                </div>
-                <div>
-                    <h4>Q2 多选题</h4>
-                    <ul>
-                        <li><input type="checkbox" name="q2"/>选择一</li>
-                        <li><input type="checkbox" name="q2"/>选择二</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Q3 <span>文本题</span></h4>
-                    <ul>
-                        <li><textarea></textarea></li>
-                    </ul>
-                </div>
-
+            <div class="questions" v-for="t in que">
+                <question :index='$index+1' :type='t.type'></question>
             </div>
             <div class="adds">
-                <div class="btns" v-show="n_add_t"  transition="n_add_t">
-                    <button type="button" class="btn btn-default btn-sm">
+                <div class="btns" v-show="n_add_ts"  transition="n_add_t">
+                    <button type="button" class="btn btn-default btn-sm" @click="radio">
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
                         单选
                     </button>
-                    <button type="button" class="btn btn-default btn-sm">
+                    <button type="button" class="btn btn-default btn-sm" @click="checkbox">
                         <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> 
                         多选
                     </button>
-                    <button type="button" class="btn btn-default btn-sm">
+                    <button type="button" class="btn btn-default btn-sm" @click="textarea">
                         <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> 
                         文本题
                     </button>
@@ -67,114 +26,52 @@
                 <div class="add" @click="n_add_t_c">+ 添加问题</div>
             </div>
         </div>
+        <div class="footer">
+            <date></date>
+        </div>
     </div>
 </template>
 <script>
+import n_title from "./n_title"
+import date from "./date"
+import question from "./question"
     export default{
         data(){
             return {
-                n_btn : true,
-                n_add_t : false
+                n_add_ts : false,
+                que:[],
+                index:1
             }
         },
         methods:{
-            me:function (){
-                this.n_btn = false
-            },
-            mes:function (event){
-                var el = event.currentTarget;
-                this.n_btn = true;
-                el.select()
-                console.log(el)
-            },
             n_add_t_c : function(){
-                this.n_add_t = true
+                this.n_add_ts = true;
+            },
+            radio : function(){
+                this.que.push({"type":"radio"})
+                this.n_add_ts = false;
+            },
+            checkbox : function(){
+                this.que.push({"type":"checkbox"})
+                this.n_add_ts = false;
+            },
+            textarea : function(){
+                this.que.push({"type":"textarea"})
+                this.n_add_ts = false;
             }
         },
         // 组件
         components:{
-            n_title:{
-                props: {
-                    text: String,
-                    editing: Boolean,
-                    class: String,
-                    iclass: String
-                },
-                template:
-                    "<span class='{{class}}' "+
-                        "v-if='!editing' "+
-                        "@click='edit'"+
-                    ">"+
-                        "{{ text }}"+
-                    "</span>"+
-                    "<input type='text' class='{{iclass}}'"+
-                        "v-el:input "+
-                        "v-if='editing' "+
-                        "@blur='blur'"+
-                        "v-model='text' "+
-                    ">",
-                methods: {
-                    blur: function(){
-                        let ntext = this.text
-                        this.editing = false;
-                        if(this.text == ""){
-                            this.text = ntext
-                        }
-                    },
-                    edit: function(){
-                        this.editing = true;   
-                        // 在dom有变化后立即执行
-                        this.$nextTick(function(){
-                            // 全选
-                            this.$els.input.select();
-                        })   
-                    }
-                }
-            },
-            n_add_q:{
-                props: {
-                    text: String,
-                    editing: Boolean,
-                    class: String,
-                    iclass: String
-                },
-                template: 
-                    "<div class='n_radio question'>"+
-                        "<h4>"+
-                            "Q1 "+
-                            "<span>"+
-                                "<n_title :text=''请输入问题'' :class='''' :iclass=''''></n_title>"+
-                            "</span>"+
-                        "</h4>"+
-                        "<ul>"+
-                            "<li>"+
-                                "<input type='radio' name='q1'/><n_title :text=''选择一'' :class='''' :iclass=''''>"+
-                            "</li>"+
-                            "<li>"+
-                                "<input type='radio' name='q1'/><n_title :text=''选择二'' :class='''' :iclass=''''>"+
-                            "</li>"+
-                            "<li class='q_add'>+</li>"+
-                        "</ul>"+
-                            "<!--必填按钮-->"+
-                        "<div class='required btns'>"+
-                            "<input type='checkbox' name='question'/><span>此题是否必填</span>"+
-                        "</div>"+
-                        "<!--功能按钮-->"+
-                        "<div class='fun btns'>"+
-                            "<span>上移</span>"+
-                            "<span>下移</span>"+
-                            "<span>复用</span>"+
-                            "<span>删除</span>"+
-                        "</div>"+
-                    "</div>"
-            }
+            question,
+            n_title,
+            date
         }
     }
 </script>
 <style>
     /* 过渡效果 */
     .n_add_t-transition {
-      transition: all .3s ease;
+      transition: height .3s ease;
       height: 30px;
       overflow: hidden;
     }
@@ -230,12 +127,12 @@
         width: 205px;
         margin: 10px auto 10px auto;
     }
-    #new .content .questions>div{
+    #new .content .questions>div.question{
         transition: 0.3s all;
         position: relative;
         padding: 10px;
     }
-    #new .content .questions>div:hover{
+    #new .content .questions>div.question:hover{
         background: #dedede;
     }
     #new .content .questions ul{
@@ -245,7 +142,6 @@
         list-style: none;
     }
     #new .content .questions li.q_add{
-        transition: 0.2s;
         cursor: pointer;
         text-align: center;
         font-size: 18px;

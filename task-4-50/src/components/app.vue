@@ -10,7 +10,7 @@
     </div>
 </template>
 <script>
-    import navs from './nav.vue'; 
+    import navs from './nav'; 
     
     export default{ 
         components: {

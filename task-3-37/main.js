@@ -3,7 +3,7 @@ window.onload = function(){
   var pops = new pop({
     parent:document.getElementsByClassName("aa")[0],
     title:"hello world",
-    content:"hello javascript",
+    content:"hello javascript",})
     /*define:function(){
       alert(1);
     },
