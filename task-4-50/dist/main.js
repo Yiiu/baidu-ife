@@ -13804,9 +13804,6 @@
 	//     }
 	//
 	// </style>
-	//
-	// /* n_add_t 打开问题样式*/
-	//
 	// <template>
 	//     <div transition="gui" id="new">
 	//         <n_title :text='"请输入标题"' :class="'new-title'" :iclass="'form-control new-title'"></n_title>
@@ -14279,8 +14276,7 @@
 	exports.default = {
 	    data: function data() {
 	        return {
-	            item: [{ "title": "问题1" }, { "title": "问题2" }],
-	            abc: "123"
+	            item: [{ "title": "问题1" }, { "title": "问题2" }]
 	        };
 	    },
 

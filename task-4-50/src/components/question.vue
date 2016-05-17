@@ -97,7 +97,6 @@ import n_title from "./n_title"
                     {"title":"问题1"},
                     {"title":"问题2"}
                 ],
-                abc: "123"
             }
         },
         props: {
