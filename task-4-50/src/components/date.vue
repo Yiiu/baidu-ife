@@ -55,24 +55,30 @@ function days(y,w){
             add: function(d){
                 if(d == "y"){
                     this.year = this.year+1;
+                    this.datas()
                 }else {
                     if(this.week == 12){
                         this.year++;
                         this.week = 1;
+                        this.datas()
                     }else{
                         this.week = this.week+1;
+                        this.datas()
                     }
                 }
             },
             lessen:function(d){
                 if(d == "y"){
                     this.year = this.year-1;
+                    this.datas()
                 }else {
                     if(this.week == 1){
                         this.year--;
                         this.week = 12;
+                        this.datas()
                     }else{
                         this.week = this.week-1;
+                        this.datas()
                     }
                 }
             },
@@ -126,6 +132,9 @@ function days(y,w){
     }
 </script>
 <style>
+    .date {
+        display: inline-block;
+    }
     .date .table ul {
         padding: 0;
         margin: 0;

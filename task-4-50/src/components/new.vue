@@ -25,7 +25,12 @@
         </div>
         <div class="footer">
             <date></date>
+            <div class="btns">
+                <button type="button" class="btn btn-default btn-sm">保存问卷</button>
+                <button type="button" class="btn btn-default btn-sm">提交问卷</button>
+            </div>
         </div>
+        {{que | json}}
     </div>
 </template>
 <script>
@@ -124,5 +129,7 @@ import question from "./question"
         width: 205px;
         margin: 10px auto 10px auto;
     }
-
+    #new .footer .btns {
+        float: right;
+    }
 </style>

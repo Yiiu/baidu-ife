@@ -4,7 +4,7 @@
         <div class="navbar-header">
             <a class="navbar-brand" v-link="{ path: '/'}">我的问卷</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a v-link="{ path: '/list'}" class="title">调查问卷</a></li>
             </ul>
@@ -15,3 +15,5 @@
       </div>
     </nav>
 </template>
+<script>
+</script>
