@@ -1,6 +1,7 @@
 <template>
     <div class="n_radio question">
         <h4>
+        {{title}}
             <template 
             v-if="type=='radio'">
                 Q{{index}}  (单选题)
@@ -14,16 +15,16 @@
                 Q{{index}}  (文本题)
             </template>
             <span>
-                <n_title :text='"请输入标题"'></n_title>
+                <n_title :text.sync="title"></n_title>
             </span>
         </h4>
         <ul>
             <!-- 单选 -->
-            <template v-for="test in item" v-if="type=='radio'">
+            <template v-for="test in problem" v-if="type=='radio'">
                 <li>
                     <span class="glyphicon glyphicon-unchecked"></span>
                     <n_title 
-                        :text="test.title" 
+                        :text.sync="test.title" 
                         :class="''" 
                         :iclass="''"
                     ></n_title>
@@ -33,11 +34,11 @@
                 </li>
             </template>
             <!-- 多选 -->
-            <template v-for="test in item" v-if="type=='checkbox'">
+            <template v-for="test in problem" v-if="type=='checkbox'">
                 <li>
                     <span class="glyphicon glyphicon-record"></span>
                     <n_title 
-                        :text="test.title" 
+                        :text.sync="test.title" 
                         :class="''" 
                         :iclass="''"
                     ></n_title>
@@ -79,28 +80,34 @@ import n_title from "./n_title"
     export default {
         data(){
             return {
-                item: [
-                    {"title":"问题"},
-                    {"title":"问题"}
-                ],
-                required:false
+                required:false,
+                problem:new Array,
+                title:"abs",
             }
         },
         props: {
             index: Number,
             type: String,
+            data: Array,
+            me: Object
         },
         components:{
             n_title
         },
         methods:{
             pr_add:function(){
-                this.item.push({"title":"问题"})
+                this.problem.push({"title":"问题"})
             },
             pr_del:function(index){
-                this.item.splice(index,1)
+                this.problem.splice(index,1)
             },
-        }
+        },
+        ready:function(){
+            this.me["title"]=this.title;
+            this.me["problem"]=this.problem;
+            this.me["type"]=this.type;
+            this.me["required"]=this.required
+        },
     }
 </script>
 <style>
@@ -163,5 +170,8 @@ import n_title from "./n_title"
     }
     .glyphicon-align-justify {
         font-size: 46px;
+    }
+    #new .content .questions>div.question>div.fun span{
+        cursor:pointer;
     }
 </style>

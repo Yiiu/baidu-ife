@@ -1,9 +1,9 @@
 <template>
     <div transition="gui" id="new">
-        <n_title :text='"请输入标题"' :class="'new-title'" :iclass="'form-control new-title'"></n_title>
+        <n_title :text.sync='text' :class="'new-title'" :iclass="'form-control new-title'"></n_title>
         <div class="content">
             <div class="questions" v-for="t in que">
-                <question :index='$index+1' :type='t.type'></question>
+                <question :index='$index+1' :type='t.type' :me.sync="t"></question>
             </div>
             <div class="adds">
                 <div class="btns" v-show="n_add_ts"  transition="n_add_t">
@@ -26,23 +26,26 @@
         <div class="footer">
             <date></date>
             <div class="btns">
-                <button type="button" class="btn btn-default btn-sm">保存问卷</button>
+                <button type="button" class="btn btn-default btn-sm" @click="mes">保存问卷</button>
                 <button type="button" class="btn btn-default btn-sm">提交问卷</button>
             </div>
         </div>
         {{que | json}}
+        <pop></pop>
     </div>
 </template>
 <script>
 import n_title from "./n_title"
+import pop from "./pops"
 import date from "./date"
 import question from "./question"
     export default{
         data(){
             return {
+                text:"请输入标题",
                 n_add_ts : false,
                 que:[],
-                index:1
+                index:1,
             }
         },
         methods:{
@@ -60,13 +63,17 @@ import question from "./question"
             textarea : function(){
                 this.que.push({"type":"textarea"})
                 this.n_add_ts = false;
-            }
+            },
+            mes:function(){
+                console.log(this.que)
+            },
         },
         // 组件
         components:{
             question,
             n_title,
-            date
+            date,
+            pop
         }
     }
 </script>
@@ -104,7 +111,7 @@ import question from "./question"
         font-size: 24px;
         border :0;
     }
-    #new .content {
+    #new>.content {
         margin-top: 10px;
         margin-bottom: 10px;
         padding:20px;
