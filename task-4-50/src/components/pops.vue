@@ -1,14 +1,14 @@
 <template>
-    <div class="yiiuPop" v-if="on">
+    <div class="yiiuPop" v-if="on"  transition="modal">
         <div class="popContent">
             <div class="popTop">
                 <h1>警告</h1>
             </div>
             <div class="content">
-                hello world
+                {{war}}
             </div>
             <div class="select">
-                <button type="button" class="btn btn-primary btn-block">
+                <button type="button" class="btn btn-primary btn-block" @click="c">
                     <span class="glyphicon glyphicon-ok"></span>
                     确定
                 </button>
@@ -18,15 +18,20 @@
 </template>
 <script>
     export default{
-        data(){
-            return{
-                on:false,
+        props:{
+            on:Boolean,
+            war:String
+        },
+        methods:{
+            c:function(){
+                this.on=false
             }
         }
     }
 </script>
 <style>
 .yiiuPop {
+    transition: all .3s ease;
     z-index: 1000;
     position: fixed;
     top:0;
@@ -89,5 +94,14 @@
 .yiiuPop>div.popContent .select  {
     width: 80px;
     margin: 0 auto;
+}
+.modal-enter, .modal-leave {
+  opacity: 0;
+}
+
+.modal-enter,
+.modal-leave{
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 </style>

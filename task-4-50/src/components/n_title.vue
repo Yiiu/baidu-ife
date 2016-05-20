@@ -18,11 +18,17 @@
                 n_btn : true,
                 n_add_t : false
         },
-        props: 
-            ["text","editing","class","iclass"],
+        props: {
+            text:{
+                twoWay:true
+            },
+            editing:Boolean,
+            class:String,
+            iclass:String
+        },
         methods: {
             blur: function(){
-                let ntext = this.text
+                var ntext = this.text
                 this.editing = false;
                 if(this.text == ""){
                     this.text = ntext

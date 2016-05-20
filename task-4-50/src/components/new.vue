@@ -3,7 +3,7 @@
         <n_title :text.sync='text' :class="'new-title'" :iclass="'form-control new-title'"></n_title>
         <div class="content">
             <div class="questions" v-for="t in que">
-                <question :index='$index+1' :type='t.type' :me.sync="t"></question>
+                <question :index='$index+1' :type='t.type' v-ref:sss></question>
             </div>
             <div class="adds">
                 <div class="btns" v-show="n_add_ts"  transition="n_add_t">
@@ -27,11 +27,10 @@
             <date></date>
             <div class="btns">
                 <button type="button" class="btn btn-default btn-sm" @click="mes">保存问卷</button>
-                <button type="button" class="btn btn-default btn-sm">提交问卷</button>
+                <button type="button" class="btn btn-default btn-sm" @click="check">提交问卷</button>
             </div>
         </div>
-        {{que | json}}
-        <pop></pop>
+        <pop :on.sync="btn" :war="warning"></pop>
     </div>
 </template>
 <script>
@@ -45,7 +44,11 @@ import question from "./question"
                 text:"请输入标题",
                 n_add_ts : false,
                 que:[],
+                data:[],
+                date:"",
                 index:1,
+                btn:false,
+                warning:"!"
             }
         },
         methods:{
@@ -64,9 +67,36 @@ import question from "./question"
                 this.que.push({"type":"textarea"})
                 this.n_add_ts = false;
             },
-            mes:function(){
-                console.log(this.que)
+            // 验证
+            check: function(){
+                this.mes()
+                for(var i=0;i<this.data.length;i++){
+                    console.log(this.data[i])
+                    if(this.data[i].h1=="请输入标题"){
+                        this.warning = "请输入问题"+(i+1)+ "的标题";
+                        this.btn = true;
+                    }else if(this.data[i].problem.length <= 1){
+                        this.warning = "每个问题至少2个问题";
+                        this.btn = true;
+                    }
+                }
             },
+            mes:function(){
+                this.data = []
+                for(var i=0;i<this.$children.length;i++){
+                    if(/question/.test(this.$children[i].$el.className)){
+                        let me = {};
+                        me.h1 = this.$children[i].h1;
+                        me.problem = this.$children[i].problem;
+                        me.required = this.$children[i].required;
+                        this.data.push(me)
+                        console.log(this.data)
+                    }
+                }
+            },
+            c:function(){
+                this.btn = true
+            }
         },
         // 组件
         components:{

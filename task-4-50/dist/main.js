@@ -62,19 +62,19 @@
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _list = __webpack_require__(13);
+	var _list = __webpack_require__(14);
 
 	var _list2 = _interopRequireDefault(_list);
 
-	var _home = __webpack_require__(16);
+	var _home = __webpack_require__(17);
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _ = __webpack_require__(19);
+	var _ = __webpack_require__(20);
 
 	var _2 = _interopRequireDefault(_);
 
-	var _new = __webpack_require__(21);
+	var _new = __webpack_require__(22);
 
 	var _new2 = _interopRequireDefault(_new);
 
@@ -84,12 +84,12 @@
 
 	// 主页
 	// app
-	_vue2.default.use(_vueRouter2.default);
-	// 创建新实例
-	// 404界面
+	_vue2.default.config.devtools = true; // 404界面
 	// 列表页
 	// app
 
+	_vue2.default.use(_vueRouter2.default);
+	// 创建新实例
 	var router = new _vueRouter2.default();
 	router.map({
 	    "/": {
@@ -13074,7 +13074,7 @@
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/app.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(12)
+	__vue_template__ = __webpack_require__(13)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -13132,7 +13132,12 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_template__ = __webpack_require__(11)
+	__vue_script__ = __webpack_require__(11)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src/components/nav.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(12)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -13154,25 +13159,50 @@
 /* 11 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<nav class=\"navbar navbar-default navbar-static-top\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" v-link=\"{ path: '/'}\">我的问卷</a>\n    </div>\n    <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n            <li><a v-link=\"{ path: '/list'}\" class=\"title\">调查问卷</a></li>\n        </ul>\n        <ul class=\"nav navbar-nav navbar-right\">\n            <li><a v-link=\"{ path: '/new'}\" class=\"title\">新建问卷</a></li>\n        </ul>\n    </div>\n  </div>\n</nav>\n";
+	// <template>
+	//     <nav class="navbar navbar-default navbar-static-top">
+	//       <div class="container">
+	//         <div class="navbar-header">
+	//             <a class="navbar-brand" v-link="{ path: '/'}">我的问卷</a>
+	//         </div>
+	//         <div class="navbar-collapse">
+	//             <ul class="nav navbar-nav">
+	//                 <li><a v-link="{ path: '/list'}" class="title">调查问卷</a></li>
+	//             </ul>
+	//             <ul class="nav navbar-nav navbar-right">
+	//                 <li><a v-link="{ path: '/new'}" class="title">新建问卷</a></li>
+	//             </ul>
+	//         </div>
+	//       </div>
+	//     </nav>
+	// </template>
+	// <script>
+	// </script>
+	"use strict";
 
 /***/ },
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div>\n    <navs></navs>\n    <div class=\"container\">\n        <div class=\"jumbotron\">\n            <router-view></router-view>\n        </div>\n    </div>\n    <footer></footer>\n</div>\n";
+	module.exports = "\n<nav class=\"navbar navbar-default navbar-static-top\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" v-link=\"{ path: '/'}\">我的问卷</a>\n    </div>\n    <div class=\"navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n            <li><a v-link=\"{ path: '/list'}\" class=\"title\">调查问卷</a></li>\n        </ul>\n        <ul class=\"nav navbar-nav navbar-right\">\n            <li><a v-link=\"{ path: '/new'}\" class=\"title\">新建问卷</a></li>\n        </ul>\n    </div>\n  </div>\n</nav>\n";
 
 /***/ },
 /* 13 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div>\n    <navs></navs>\n    <div class=\"container\">\n        <div class=\"jumbotron\">\n            <router-view></router-view>\n        </div>\n    </div>\n    <footer></footer>\n</div>\n";
+
+/***/ },
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(14)
+	__vue_script__ = __webpack_require__(15)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/list.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(15)
+	__vue_template__ = __webpack_require__(16)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -13191,7 +13221,7 @@
 	})()}
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -13254,22 +13284,22 @@
 	// </script>
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div transition=\"gui\">\n    <div class=\"panel panel-default\">\n        <div class=\"panel-heading\">问卷</div>\n        <table class=\"table\">\n            <thead>\n                <tr>\n                    <th></th>\n                    <th>标题</th>\n                    <th>时间</th>\n                    <th>状态</th>\n                    <th>操作</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr v-for=\"test in item\">\n                    <th><input type=\"checkbox\"></th>\n                    <th>{{test.title}}</th>\n                    <th>{{test.timeStart}}</th>\n                    <th v-if=\"test.state=='rel'\">\n                    已发布</th>\n                    <th v-if=\"test.state=='on'\" class=\"re\">\n                    发布中</th>\n                    <th v-if=\"test.state=='end'\" class=\"end\">\n                    结束</th>\n                    <th>\n                        <a href=\"\">编辑</a>\n                        <a href=\"\">删除</a>\n                        <a href=\"\">查看数据</a>\n                    </th>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n";
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(17)
+	__vue_script__ = __webpack_require__(18)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/home.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(18)
+	__vue_template__ = __webpack_require__(19)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -13288,7 +13318,7 @@
 	})()}
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports) {
 
 	// <template>
@@ -13304,17 +13334,17 @@
 	"use strict";
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div transition=\"gui\">\n    <h1>欢迎光临</h1>\n    <p>\n        <a v-link=\"{ path:'/new' }\" class=\"btn btn-lg btn-primary\">创建一个问卷</a>\n    </p>\n</div>\n";
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_template__ = __webpack_require__(20)
+	__vue_template__ = __webpack_require__(21)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -13333,23 +13363,23 @@
 	})()}
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div transition=\"gui\">\n    <h1>404???????</h1>\n    <a v-link=\"{ path:'/' }\" class=\"btn btn-lg btn-primary\">返回首页</a>\n</div>\n";
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(22)
-	__vue_script__ = __webpack_require__(26)
+	__webpack_require__(23)
+	__vue_script__ = __webpack_require__(27)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/new.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(40)
+	__vue_template__ = __webpack_require__(46)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -13368,16 +13398,16 @@
 	})()}
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(23);
+	var content = __webpack_require__(24);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
+	var update = __webpack_require__(26)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -13394,21 +13424,21 @@
 	}
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(24)();
+	exports = module.exports = __webpack_require__(25)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "\n/* 过渡效果 */\n.n_add_t-transition {\n  -webkit-transition: height .3s ease;\n  transition: height .3s ease;\n  height: 30px;\n  overflow: hidden;\n}\n\n/* .expand-enter 定义进入的开始状态 */\n/* .expand-leave 定义离开的结束状态 */\n.n_add_t-enter, .n_add_t-leave {\n  height: 0;\n  opacity: 0;\n}\n/*  new  */\n#new  span.new-title{\n    display: block;\n    margin:0;\n    height: 34px;\n    padding-top: 2px;\n    line-height: 1.42857143;\n    text-align: center;\n    font-size: 24px;\n}\n#new  span.new-title:hover{\n    background: #fff;\n}\n#new  input.new-title{\n    margin: 0;\n    padding:0;\n    text-align: center;\n    font-size: 24px;\n    border :0;\n}\n#new .content {\n    margin-top: 10px;\n    margin-bottom: 10px;\n    padding:20px;\n    border-top: 2px solid #ccc;\n    border-bottom: 2px solid #ccc;\n}\n#new .adds {\n    margin-top: 10px;\n    border: 1px solid #ccc;\n}\n#new .content .add{\n    height: 80px;\n    line-height: 80px;\n    background:#ddd;\n    color: #777;\n    font-size: 24px;\n    text-align: center;\n    cursor: pointer;\n}\n#new .content .adds .btns {\n    position: relative;\n    width: 205px;\n    margin: 10px auto 10px auto;\n}\n\n", ""]);
+	exports.push([module.id, "\n/* 过渡效果 */\n.n_add_t-transition {\n  -webkit-transition: height .3s ease;\n  transition: height .3s ease;\n  height: 30px;\n  overflow: hidden;\n}\n\n/* .expand-enter 定义进入的开始状态 */\n/* .expand-leave 定义离开的结束状态 */\n.n_add_t-enter, .n_add_t-leave {\n  height: 0;\n  opacity: 0;\n}\n/*  new  */\n#new  span.new-title{\n    display: block;\n    margin:0;\n    height: 34px;\n    padding-top: 2px;\n    line-height: 1.42857143;\n    text-align: center;\n    font-size: 24px;\n}\n#new  span.new-title:hover{\n    background: #fff;\n}\n#new  input.new-title{\n    margin: 0;\n    padding:0;\n    text-align: center;\n    font-size: 24px;\n    border :0;\n}\n#new>.content {\n    margin-top: 10px;\n    margin-bottom: 10px;\n    padding:20px;\n    border-top: 2px solid #ccc;\n    border-bottom: 2px solid #ccc;\n}\n#new .adds {\n    margin-top: 10px;\n    border: 1px solid #ccc;\n}\n#new .content .add{\n    height: 80px;\n    line-height: 80px;\n    background:#ddd;\n    color: #777;\n    font-size: 24px;\n    text-align: center;\n    cursor: pointer;\n}\n#new .content .adds .btns {\n    position: relative;\n    width: 205px;\n    margin: 10px auto 10px auto;\n}\n#new .footer .btns {\n    float: right;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports) {
 
 	/*
@@ -13464,7 +13494,7 @@
 
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -13686,7 +13716,7 @@
 
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -13695,23 +13725,65 @@
 	    value: true
 	});
 
-	var _n_title = __webpack_require__(27);
+	var _n_title = __webpack_require__(28);
 
 	var _n_title2 = _interopRequireDefault(_n_title);
 
-	var _date = __webpack_require__(30);
+	var _pops = __webpack_require__(31);
+
+	var _pops2 = _interopRequireDefault(_pops);
+
+	var _date = __webpack_require__(36);
 
 	var _date2 = _interopRequireDefault(_date);
 
-	var _question = __webpack_require__(35);
+	var _question = __webpack_require__(41);
 
 	var _question2 = _interopRequireDefault(_question);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	// <template>
+	//     <div transition="gui" id="new">
+	//         <n_title :text.sync='text' :class="'new-title'" :iclass="'form-control new-title'"></n_title>
+	//         <div class="content">
+	//             <div class="questions" v-for="t in que">
+	//                 <question :index='$index+1' :type='t.type' :me.sync="t"></question>
+	//             </div>
+	//             <div class="adds">
+	//                 <div class="btns" v-show="n_add_ts"  transition="n_add_t">
+	//                     <button type="button" class="btn btn-default btn-sm" @click="radio">
+	//                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+	//                         单选
+	//                     </button>
+	//                     <button type="button" class="btn btn-default btn-sm" @click="checkbox">
+	//                         <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+	//                         多选
+	//                     </button>
+	//                     <button type="button" class="btn btn-default btn-sm" @click="textarea">
+	//                         <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+	//                         文本题
+	//                     </button>
+	//                 </div>
+	//                 <div class="add" @click="n_add_t_c">+ 添加问题</div>
+	//             </div>
+	//         </div>
+	//         <div class="footer">
+	//             <date></date>
+	//             <div class="btns">
+	//                 <button type="button" class="btn btn-default btn-sm" @click="mes">保存问卷</button>
+	//                 <button type="button" class="btn btn-default btn-sm">提交问卷</button>
+	//             </div>
+	//         </div>
+	//         {{que | json}}
+	//         <pop></pop>
+	//     </div>
+	// </template>
+	// <script>
 	exports.default = {
 	    data: function data() {
 	        return {
+	            text: "请输入标题",
 	            n_add_ts: false,
 	            que: [],
 	            index: 1
@@ -13733,13 +13805,17 @@
 	        textarea: function textarea() {
 	            this.que.push({ "type": "textarea" });
 	            this.n_add_ts = false;
+	        },
+	        mes: function mes() {
+	            console.log(this.que);
 	        }
 	    },
 	    // 组件
 	    components: {
 	        question: _question2.default,
 	        n_title: _n_title2.default,
-	        date: _date2.default
+	        date: _date2.default,
+	        pop: _pops2.default
 	    }
 	};
 	// </script>
@@ -13777,7 +13853,7 @@
 	//         font-size: 24px;
 	//         border :0;
 	//     }
-	//     #new .content {
+	//     #new>.content {
 	//         margin-top: 10px;
 	//         margin-bottom: 10px;
 	//         padding:20px;
@@ -13802,51 +13878,22 @@
 	//         width: 205px;
 	//         margin: 10px auto 10px auto;
 	//     }
-	//
+	//     #new .footer .btns {
+	//         float: right;
+	//     }
 	// </style>
-	// <template>
-	//     <div transition="gui" id="new">
-	//         <n_title :text='"请输入标题"' :class="'new-title'" :iclass="'form-control new-title'"></n_title>
-	//         <div class="content">
-	//             <div class="questions" v-for="t in que">
-	//                 <question :index='$index+1' :type='t.type'></question>
-	//             </div>
-	//             <div class="adds">
-	//                 <div class="btns" v-show="n_add_ts"  transition="n_add_t">
-	//                     <button type="button" class="btn btn-default btn-sm" @click="radio">
-	//                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-	//                         单选
-	//                     </button>
-	//                     <button type="button" class="btn btn-default btn-sm" @click="checkbox">
-	//                         <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-	//                         多选
-	//                     </button>
-	//                     <button type="button" class="btn btn-default btn-sm" @click="textarea">
-	//                         <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-	//                         文本题
-	//                     </button>
-	//                 </div>
-	//                 <div class="add" @click="n_add_t_c">+ 添加问题</div>
-	//             </div>
-	//         </div>
-	//         <div class="footer">
-	//             <date></date>
-	//         </div>
-	//     </div>
-	// </template>
-	// <script>
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(28)
+	__vue_script__ = __webpack_require__(29)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/n_title.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(29)
+	__vue_template__ = __webpack_require__(30)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -13865,7 +13912,7 @@
 	})()}
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -13915,23 +13962,201 @@
 	// </script>
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<span class=\"{{class}}\" \n    v-if=\"!editing\" \n    @click=\"edit\"\n>\n    {{ text }}\n</span>\n<input type=\"text\" class=\"{{iclass}}\"\n    v-el:input \n    v-if=\"editing\" \n    @blur=\"blur\"\n    v-model=\"text\" \n>\n";
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(31)
-	__vue_script__ = __webpack_require__(33)
+	__webpack_require__(32)
+	__vue_script__ = __webpack_require__(34)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src/components/pops.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(35)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/home/yuer/文档/ife/baidu-ife/task-4-50/src/components/pops.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(33);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(26)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./pops.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./pops.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(25)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n.yiiuPop {\n    z-index: 1000;\n    position: fixed;\n    top:0;\n    left:0;\n    width: 100% ;\n    height: 100%;\n    background: rgba(0,0,0,.5);\n    overflow: hidden;     \n    -webkit-transform-style: preserve-3d;\n    transform-style: preserve-3d;\n    -webkit-perspective: 300px;\n    -ms-perspective: 300px;\n    -o-perspective: 300px;\n    perspective: 300px;\n}\n.yiiuPop>div.popContent {\n    margin:0;\n    padding: 0;\n    position: fixed;\n    top: 50%;   \n    left: 50%;\n    margin-left:-200px;\n    margin-top: -100px;\n    width: 400px;\n    height: 200px;\n    background-color: #fff;\n    border: 1px solid #337ab7;\n    border-radius: 4px;\n    box-shadow: 0 1px 1px rgba(0,0,0,.05);\n    moz-user-select: -moz-none;\n    -moz-user-select: none;\n    -o-user-select:none;\n    -webkit-user-select:none;\n    -ms-user-select:none;\n    user-select:none;\n}\n.yiiuPop>div.popContent .popTop h1{\n    margin:0;\n    font-size: 24px;\n}\n.yiiuPop>div.popContent .popTop{\n    background-color: #337ab7;\n    color: #fff;   \n    padding: 10px 15px;\n    border-bottom: 1px solid #337ab7;\n    border-top-left-radius: 3px;\n    border-top-right-radius: 3px;\n}\n.yiiuPop>div.popContent .content{\n    line-height: 90px;\n    text-align: center;\n    font-size: 16px;\n}\n.yiiuPop>div.popContent .select  {\n    width: 80px;\n    margin: 0 auto;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 34 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// <template>
+	//     <div class="yiiuPop" v-if="on">
+	//         <div class="popContent">
+	//             <div class="popTop">
+	//                 <h1>警告</h1>
+	//             </div>
+	//             <div class="content">
+	//                 hello world
+	//             </div>
+	//             <div class="select">
+	//                 <button type="button" class="btn btn-primary btn-block">
+	//                     <span class="glyphicon glyphicon-ok"></span>
+	//                     确定
+	//                 </button>
+	//             </div>
+	//         </div>
+	//     </div>
+	// </template>
+	// <script>
+	exports.default = {
+	    data: function data() {
+	        return {
+	            on: false
+	        };
+	    }
+	};
+	// </script>
+	// <style>
+	// .yiiuPop {
+	//     z-index: 1000;
+	//     position: fixed;
+	//     top:0;
+	//     left:0;
+	//     width: 100% ;
+	//     height: 100%;
+	//     background: rgba(0,0,0,.5);
+	//     overflow: hidden;    
+	//     -webkit-transform-style: preserve-3d;
+	//     -moz-transform-style: preserve-3d;
+	//     -ms-transform-style: preserve-3d;
+	//     -o-transform-style: preserve-3d;
+	//     transform-style: preserve-3d;
+	//     -webkit-perspective: 300px;
+	//     -moz-perspective: 300px;
+	//     -ms-perspective: 300px;
+	//     -o-perspective: 300px;
+	//     perspective: 300px;
+	// }
+	// .yiiuPop>div.popContent {
+	//     margin:0;
+	//     padding: 0;
+	//     position: fixed;
+	//     top: 50%;  
+	//     left: 50%;
+	//     margin-left:-200px;
+	//     margin-top: -100px;
+	//     width: 400px;
+	//     height: 200px;
+	//     background-color: #fff;
+	//     border: 1px solid #337ab7;
+	//     border-radius: 4px;
+	//     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	//     box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	//     moz-user-select: -moz-none;
+	//     -moz-user-select: none;
+	//     -o-user-select:none;
+	//     -khtml-user-select:none;
+	//     -webkit-user-select:none;
+	//     -ms-user-select:none;
+	//     user-select:none;
+	// }
+	// .yiiuPop>div.popContent .popTop h1{
+	//     margin:0;
+	//     font-size: 24px;
+	// }
+	// .yiiuPop>div.popContent .popTop{
+	//     background-color: #337ab7;
+	//     color: #fff;  
+	//     padding: 10px 15px;
+	//     border-bottom: 1px solid #337ab7;
+	//     border-top-left-radius: 3px;
+	//     border-top-right-radius: 3px;
+	// }
+	// .yiiuPop>div.popContent .content{
+	//     line-height: 90px;
+	//     text-align: center;
+	//     font-size: 16px;
+	// }
+	// .yiiuPop>div.popContent .select  {
+	//     width: 80px;
+	//     margin: 0 auto;
+	// }
+	// </style>
+
+/***/ },
+/* 35 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"yiiuPop\" v-if=\"on\">\n    <div class=\"popContent\">\n        <div class=\"popTop\">\n            <h1>警告</h1>\n        </div>\n        <div class=\"content\">\n            hello world\n        </div>\n        <div class=\"select\">\n            <button type=\"button\" class=\"btn btn-primary btn-block\">\n                <span class=\"glyphicon glyphicon-ok\"></span>\n                确定\n            </button>\n        </div>\n    </div>\n</div>\n";
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(37)
+	__vue_script__ = __webpack_require__(39)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/date.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(34)
+	__vue_template__ = __webpack_require__(40)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -13950,16 +14175,16 @@
 	})()}
 
 /***/ },
-/* 31 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(32);
+	var content = __webpack_require__(38);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
+	var update = __webpack_require__(26)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -13976,21 +14201,21 @@
 	}
 
 /***/ },
-/* 32 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(24)();
+	exports = module.exports = __webpack_require__(25)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "\n.date .table ul {\n    padding: 0;\n    margin: 0;\n}\n.date .table ul li {      \n    width: 30px;\n    height: 30px;\n    margin: 7px;\n    line-height: 30px;\n    -webkit-transition: 0.3s;\n    transition: 0.3s;\n    text-align: center; \n    cursor: pointer;\n    margin-top: 7px;\n    font-size: 20px;\n    display: inline-block;\n    list-style-type: none;\n}\n.date .e {\n    padding: 0;\n    margin: 0;\n}\n.date .e li {      \n    width: 30px;\n    height: 30px;\n    margin: 7px;\n    line-height: 40px;\n    -webkit-transition: 0.3s;\n    transition: 0.3s;\n    text-align: center; border-radius: 40px;\n    text-align: center;\n    cursor: pointer;\n    margin-top: 7px;\n    font-size: 20px;\n    display: inline-block;\n    list-style-type: none;\n}\n.date .def{\n    color: #ccc;\n}\n.date .table li.center{\n    border-radius: 20px;\n}\n.date .table li.center:hover{\n    background: #337AB7;\n    color: #fff;\n}\n.date .panel{\n    margin-top: 10px;\n    position: absolute;\n}\n.date .form-control{\n    width: 200px;\n}\n", ""]);
+	exports.push([module.id, "\n.date {\n    display: inline-block;\n}\n.date .table ul {\n    padding: 0;\n    margin: 0;\n}\n.date .table ul li {      \n    width: 30px;\n    height: 30px;\n    margin: 7px;\n    line-height: 30px;\n    -webkit-transition: 0.3s;\n    transition: 0.3s;\n    text-align: center; \n    cursor: pointer;\n    margin-top: 7px;\n    font-size: 20px;\n    display: inline-block;\n    list-style-type: none;\n}\n.date .e {\n    padding: 0;\n    margin: 0;\n}\n.date .e li {      \n    width: 30px;\n    height: 30px;\n    margin: 7px;\n    line-height: 40px;\n    -webkit-transition: 0.3s;\n    transition: 0.3s;\n    text-align: center; border-radius: 40px;\n    text-align: center;\n    cursor: pointer;\n    margin-top: 7px;\n    font-size: 20px;\n    display: inline-block;\n    list-style-type: none;\n}\n.date .def{\n    color: #ccc;\n}\n.date .table li.center{\n    border-radius: 20px;\n}\n.date .table li.center:hover{\n    background: #337AB7;\n    color: #fff;\n}\n.date .panel{\n    margin-top: 10px;\n    position: absolute;\n}\n.date .form-control{\n    width: 200px;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 33 */
+/* 39 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -14056,24 +14281,30 @@
 	        add: function add(d) {
 	            if (d == "y") {
 	                this.year = this.year + 1;
+	                this.datas();
 	            } else {
 	                if (this.week == 12) {
 	                    this.year++;
 	                    this.week = 1;
+	                    this.datas();
 	                } else {
 	                    this.week = this.week + 1;
+	                    this.datas();
 	                }
 	            }
 	        },
 	        lessen: function lessen(d) {
 	            if (d == "y") {
 	                this.year = this.year - 1;
+	                this.datas();
 	            } else {
 	                if (this.week == 1) {
 	                    this.year--;
 	                    this.week = 12;
+	                    this.datas();
 	                } else {
 	                    this.week = this.week - 1;
+	                    this.datas();
 	                }
 	            }
 	        },
@@ -14128,6 +14359,9 @@
 	};
 	// </script>
 	// <style>
+	//     .date {
+	//         display: inline-block;
+	//     }
 	//     .date .table ul {
 	//         padding: 0;
 	//         margin: 0;
@@ -14183,23 +14417,23 @@
 	// </style>
 
 /***/ },
-/* 34 */
+/* 40 */
 /***/ function(module, exports) {
 
 	module.exports = "\n    <div class=\"date\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"date\" aria-describedby=\"basic-addon1\" @click=\"datas\" v-el:input>\n        <div class=\"panel panel-primary\" style=\"width: 340px;height: 370px;text-align: center\" v-show=\"btn\">\n            <div class=\"panel-heading\"style=\"font-size: 24px;\">\n                <span class=\"glyphicon glyphicon-chevron-left\" @click=\"lessen('y')\"></span>\n                {{year}}\n                <span class=\"glyphicon glyphicon-chevron-right\" @click=\"add('y')\"></span>\n                <span class=\"glyphicon glyphicon-chevron-left\" @click=\"lessen\"></span>\n                {{week}}\n                <span class=\"glyphicon glyphicon-chevron-right\" @click=\"add\"></span>\n                            <ul class=\"e\"><li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li></ul>\n\n            </div>\n            <div class=\"table\">\n            <ul>\n                <template v-for=\"fts in ft\">\n                    <li class=\"def front\">{{fts}}</li>\n                </template>\n                <template v-for=\"cts in ct\">\n                    <li class=\"center\" @click=\"myday(cts)\" day=>{{cts}}</li>\n                </template>\n                <template v-for=\"ats in at\">\n                    <li class=\"def after\">{{ats}}</li>\n                </template>\n            </ul>\n        </div>\n    </div>\n</template>";
 
 /***/ },
-/* 35 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(36)
-	__vue_script__ = __webpack_require__(38)
+	__webpack_require__(42)
+	__vue_script__ = __webpack_require__(44)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/question.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(39)
+	__vue_template__ = __webpack_require__(45)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -14218,16 +14452,16 @@
 	})()}
 
 /***/ },
-/* 36 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(37);
+	var content = __webpack_require__(43);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
+	var update = __webpack_require__(26)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -14244,21 +14478,21 @@
 	}
 
 /***/ },
-/* 37 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(24)();
+	exports = module.exports = __webpack_require__(25)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "\n#new .content .questions>div.question{\n    -webkit-transition: 0.3s all;\n    transition: 0.3s all;\n    position: relative;\n    padding: 10px;\n}\n#new .content .questions>div.question:hover{\n    background: #dedede;\n}\n#new .content .questions ul{\n    padding-left: 30px;\n}\n#new .content .questions li{\n    list-style: none;\n}\n#new .content .questions li.q_add{\n    cursor: pointer;\n    text-align: center;\n    font-size: 18px;\n    border: 2px dashed #ccc;\n    box-shadow: 10px;\n    border-radius: 2px;\n    opacity: 0;\n}\n#new .content .questions li.q_add:hover{\n    opacity: 1;\n}\n#new .content .questions input{\n    margin-right: 5px;\n}\n#new .content .questions textarea{\n    width: 100%;\n    max-width: 100%;\n}\n#new .content .questions .required{\n    position: absolute;\n    top: 5px;\n    right: 10px;\n    height: 0;\n    font-size: 10px;\n}\n#new .content .questions .fun{\n    position: absolute;\n    bottom: 20px;\n    right: 10px;\n    height: 0;\n    font-size: 10px;\n}\n#new .content .questions .question h4 {\n    height: 21px;\n}\n#new .content .questions .question input {\n    width: auto;\n    border: 0;\n}\n.glyphicon-remove{\n    cursor: pointer;\n}\n.glyphicon-align-justify {\n    font-size: 46px;\n}\n", ""]);
+	exports.push([module.id, "\n#new .content .questions>div.question{\n    -webkit-transition: 0.3s all;\n    transition: 0.3s all;\n    position: relative;\n    padding: 10px;\n}\n#new .content .questions>div.question:hover{\n    background: #dedede;\n}\n#new .content .questions ul{\n    padding-left: 30px;\n}\n#new .content .questions li{\n    list-style: none;\n}\n#new .content .questions li.q_add{\n    cursor: pointer;\n    text-align: center;\n    font-size: 18px;\n    border: 2px dashed #ccc;\n    box-shadow: 10px;\n    border-radius: 2px;\n    opacity: 0;\n}\n#new .content .questions li.q_add:hover{\n    opacity: 1;\n}\n#new .content .questions input{\n    margin-right: 5px;\n}\n#new .content .questions textarea{\n    width: 100%;\n    max-width: 100%;\n}\n#new .content .questions .required{\n    position: absolute;\n    top: 5px;\n    right: 10px;\n    height: 0;\n    font-size: 10px;\n}\n#new .content .questions .fun{\n    position: absolute;\n    bottom: 20px;\n    right: 10px;\n    height: 0;\n    font-size: 10px;\n}\n#new .content .questions .question h4 {\n    height: 21px;\n}\n#new .content .questions .question input {\n    width: auto;\n    border: 0;\n}\n.glyphicon-remove{\n    cursor: pointer;\n}\n.glyphicon-align-justify {\n    font-size: 46px;\n}\n#new .content .questions>div.question>div.fun span{\n    cursor:pointer;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 38 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -14267,7 +14501,7 @@
 	    value: true
 	});
 
-	var _n_title = __webpack_require__(27);
+	var _n_title = __webpack_require__(28);
 
 	var _n_title2 = _interopRequireDefault(_n_title);
 
@@ -14276,16 +14510,34 @@
 	exports.default = {
 	    data: function data() {
 	        return {
-	            item: [{ "title": "问题1" }, { "title": "问题2" }]
+	            required: false,
+	            problem: new Array(),
+	            title: "abs"
 	        };
 	    },
 
 	    props: {
 	        index: Number,
-	        type: String
+	        type: String,
+	        data: Array,
+	        me: Object
 	    },
 	    components: {
 	        n_title: _n_title2.default
+	    },
+	    methods: {
+	        pr_add: function pr_add() {
+	            this.problem.push({ "title": "问题" });
+	        },
+	        pr_del: function pr_del(index) {
+	            this.problem.splice(index, 1);
+	        }
+	    },
+	    ready: function ready() {
+	        this.me["title"] = this.title;
+	        this.me["problem"] = this.problem;
+	        this.me["type"] = this.type;
+	        this.me["required"] = this.required;
 	    }
 	};
 	// </script>
@@ -14350,83 +14602,73 @@
 	//     .glyphicon-align-justify {
 	//         font-size: 46px;
 	//     }
+	//     #new .content .questions>div.question>div.fun span{
+	//         cursor:pointer;
+	//     }
 	// </style>
 	// <template>
-	//     <div class="n_radio question" v-if="type=='radio'">
+	//     <div class="n_radio question">
 	//         <h4>
-	//            Q{{index}}  (单选题)
+	//         {{title}}
+	//             <template
+	//             v-if="type=='radio'">
+	//                 Q{{index}}  (单选题)
+	//             </template>
+	//             <template
+	//             v-if="type=='checkbox'">
+	//                 Q{{index}}  (多选题)
+	//             </template>
+	//             <template
+	//             v-if="type=='textarea'">
+	//                 Q{{index}}  (文本题)
+	//             </template>
 	//             <span>
-	//                 <n_title :text='"请输入标题"'></n_title>
+	//                 <n_title :text.sync="title"></n_title>
 	//             </span>
 	//         </h4>
 	//         <ul>
-	//             <template v-for="test in item">
+	//             <!-- 单选 -->
+	//             <template v-for="test in problem" v-if="type=='radio'">
 	//                 <li>
 	//                     <span class="glyphicon glyphicon-unchecked"></span>
-	//                     <n_title :text="test.title" :class="''" :iclass="''"></n_title>
-	//                     <span class="glyphicon glyphicon-remove"></span>
+	//                     <n_title
+	//                         :text.sync="test.title"
+	//                         :class="''"
+	//                         :iclass="''"
+	//                     ></n_title>
+	//                     <span class="glyphicon glyphicon-remove"
+	//                     @click="pr_del($index)"
+	//                     ></span>
 	//                 </li>
 	//             </template>
-	//             <li class="q_add">+</li>
-	//         </ul>
-	//             <!--必填按钮-->
-	//         <div class="required btns">
-	//             <input type="checkbox" name="question"/><span>此题是否必填</span>
-	//         </div>
-	//         <!--功能按钮-->
-	//         <div class="fun btns">
-	//             <span>上移</span>
-	//             <span>下移</span>
-	//             <span>复用</span>
-	//             <span>删除</span>
-	//         </div>
-	//     </div>
-	//
-	//     <div class="n_checkbox question" v-if="type=='checkbox'">
-	//         <h4>
-	//            Q{{index}}  (多选题)
-	//             <span>
-	//                 <n_title :text='"请输入标题"'></n_title>
-	//             </span>
-	//         </h4>
-	//         <ul>
-	//             <template v-for="test in item">
+	//             <!-- 多选 -->
+	//             <template v-for="test in problem" v-if="type=='checkbox'">
 	//                 <li>
 	//                     <span class="glyphicon glyphicon-record"></span>
-	//                     <n_title :text="test.title" :class="''" :iclass="''"></n_title>
-	//                     <div class="glyphicon glyphicon-remove"></div>
+	//                     <n_title
+	//                         :text.sync="test.title"
+	//                         :class="''"
+	//                         :iclass="''"
+	//                     ></n_title>
+	//                     <div class="glyphicon glyphicon-remove"
+	//                         @click="pr_del($index)"
+	//                     ></div>
 	//                 </li>
 	//             </template>
-	//             <li class="q_add">+</li>
+	//             <!-- 文本 -->
+	//             <template  v-if="type=='textarea'">
+	//                 <li>
+	//                     <span class="glyphicon glyphicon-align-justify"></span>
+	//                 </li>
+	//             </template>
+	//             <li class="q_add"
+	//                 @click="pr_add" 
+	//                 v-if="type=='radio' || type=='checkbox'"
+	//             >+</li>
 	//         </ul>
 	//             <!--必填按钮-->
 	//         <div class="required btns">
-	//             <input type="checkbox" name="question"/><span>此题是否必填</span>
-	//         </div>
-	//         <!--功能按钮-->
-	//         <div class="fun btns">
-	//             <span>上移</span>
-	//             <span>下移</span>
-	//             <span>复用</span>
-	//             <span>删除</span>
-	//         </div>
-	//     </div>
-	//     <div class="n_textarea question" v-if="type=='textarea'">
-	//         <h4>
-	//            Q{{index}}  (文本题)
-	//             <span>
-	//                 <n_title :text='"请点击输入标题"'></n_title>
-	//             </span>
-	//         </h4>
-	//         <ul>
-	//             <li>
-	//
-	//             <span class="glyphicon glyphicon-align-justify"></span>
-	//             </li>
-	//         </ul>
-	//             <!--必填按钮-->
-	//         <div class="required btns">
-	//             <input type="checkbox" name="question"/><span>此题是否必填</span>
+	//             <input type="checkbox" name="required" v-model="required" :true="true" :false="false"/><span>此题是否必填</span>
 	//         </div>
 	//         <!--功能按钮-->
 	//         <div class="fun btns">
@@ -14444,16 +14686,16 @@
 	 */
 
 /***/ },
-/* 39 */
+/* 45 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"n_radio question\" v-if=\"type=='radio'\">\n    <h4>\n       Q{{index}}  (单选题)\n        <span>\n            <n_title :text='\"请输入标题\"'></n_title>\n        </span>\n    </h4>\n    <ul>\n        <template v-for=\"test in item\">\n            <li>\n                <span class=\"glyphicon glyphicon-unchecked\"></span>\n                <n_title :text=\"test.title\" :class=\"''\" :iclass=\"''\"></n_title>\n                <span class=\"glyphicon glyphicon-remove\"></span>\n            </li>\n        </template>\n        <li class=\"q_add\">+</li>\n    </ul>\n        <!--必填按钮-->\n    <div class=\"required btns\">\n        <input type=\"checkbox\" name=\"question\"/><span>此题是否必填</span>\n    </div>\n    <!--功能按钮-->\n    <div class=\"fun btns\">\n        <span>上移</span>\n        <span>下移</span>\n        <span>复用</span>\n        <span>删除</span>\n    </div>\n</div>\n\n<div class=\"n_checkbox question\" v-if=\"type=='checkbox'\">\n    <h4>\n       Q{{index}}  (多选题)\n        <span>\n            <n_title :text='\"请输入标题\"'></n_title>\n        </span>\n    </h4>\n    <ul>\n        <template v-for=\"test in item\">\n            <li>\n                <span class=\"glyphicon glyphicon-record\"></span>\n                <n_title :text=\"test.title\" :class=\"''\" :iclass=\"''\"></n_title>\n                <div class=\"glyphicon glyphicon-remove\"></div>\n            </li>\n        </template>\n        <li class=\"q_add\">+</li>\n    </ul>\n        <!--必填按钮-->\n    <div class=\"required btns\">\n        <input type=\"checkbox\" name=\"question\"/><span>此题是否必填</span>\n    </div>\n    <!--功能按钮-->\n    <div class=\"fun btns\">\n        <span>上移</span>\n        <span>下移</span>\n        <span>复用</span>\n        <span>删除</span>\n    </div>\n</div>\n<div class=\"n_textarea question\" v-if=\"type=='textarea'\">\n    <h4>\n       Q{{index}}  (文本题)\n        <span>\n            <n_title :text='\"请点击输入标题\"'></n_title>\n        </span>\n    </h4>\n    <ul>\n        <li>\n            \n        <span class=\"glyphicon glyphicon-align-justify\"></span>\n        </li>\n    </ul>\n        <!--必填按钮-->\n    <div class=\"required btns\">\n        <input type=\"checkbox\" name=\"question\"/><span>此题是否必填</span>\n    </div>\n    <!--功能按钮-->\n    <div class=\"fun btns\">\n        <span>上移</span>\n        <span>下移</span>\n        <span>复用</span>\n        <span>删除</span>\n    </div>\n</div>\n";
+	module.exports = "\n<div class=\"n_radio question\">\n    <h4>\n    {{title}}\n        <template \n        v-if=\"type=='radio'\">\n            Q{{index}}  (单选题)\n        </template>\n        <template \n        v-if=\"type=='checkbox'\">\n            Q{{index}}  (多选题)\n        </template>\n        <template \n        v-if=\"type=='textarea'\">\n            Q{{index}}  (文本题)\n        </template>\n        <span>\n            <n_title :text.sync=\"title\"></n_title>\n        </span>\n    </h4>\n    <ul>\n        <!-- 单选 -->\n        <template v-for=\"test in problem\" v-if=\"type=='radio'\">\n            <li>\n                <span class=\"glyphicon glyphicon-unchecked\"></span>\n                <n_title \n                    :text.sync=\"test.title\" \n                    :class=\"''\" \n                    :iclass=\"''\"\n                ></n_title>\n                <span class=\"glyphicon glyphicon-remove\" \n                @click=\"pr_del($index)\"\n                ></span>\n            </li>\n        </template>\n        <!-- 多选 -->\n        <template v-for=\"test in problem\" v-if=\"type=='checkbox'\">\n            <li>\n                <span class=\"glyphicon glyphicon-record\"></span>\n                <n_title \n                    :text.sync=\"test.title\" \n                    :class=\"''\" \n                    :iclass=\"''\"\n                ></n_title>\n                <div class=\"glyphicon glyphicon-remove\" \n                    @click=\"pr_del($index)\"\n                ></div>\n            </li>\n        </template>\n        <!-- 文本 -->\n        <template  v-if=\"type=='textarea'\">\n            <li>\n                <span class=\"glyphicon glyphicon-align-justify\"></span>\n            </li>\n        </template>\n        <li class=\"q_add\" \n            @click=\"pr_add\"  \n            v-if=\"type=='radio' || type=='checkbox'\"\n        >+</li>\n    </ul>\n        <!--必填按钮-->\n    <div class=\"required btns\">\n        <input type=\"checkbox\" name=\"required\" v-model=\"required\" :true=\"true\" :false=\"false\"/><span>此题是否必填</span>\n    </div>\n    <!--功能按钮-->\n    <div class=\"fun btns\">\n        <span>上移</span>\n        <span>下移</span>\n        <span>复用</span>\n        <span>删除</span>\n    </div>\n</div>\n";
 
 /***/ },
-/* 40 */
+/* 46 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div transition=\"gui\" id=\"new\">\n    <n_title :text='\"请输入标题\"' :class=\"'new-title'\" :iclass=\"'form-control new-title'\"></n_title>\n    <div class=\"content\">\n        <div class=\"questions\" v-for=\"t in que\">\n            <question :index='$index+1' :type='t.type'></question>\n        </div>\n        <div class=\"adds\">\n            <div class=\"btns\" v-show=\"n_add_ts\"  transition=\"n_add_t\">\n                <button type=\"button\" class=\"btn btn-default btn-sm\" @click=\"radio\">\n                    <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span> \n                    单选\n                </button>\n                <button type=\"button\" class=\"btn btn-default btn-sm\" @click=\"checkbox\">\n                    <span class=\"glyphicon glyphicon-th-list\" aria-hidden=\"true\"></span> \n                    多选\n                </button>\n                <button type=\"button\" class=\"btn btn-default btn-sm\" @click=\"textarea\">\n                    <span class=\"glyphicon glyphicon-align-left\" aria-hidden=\"true\"></span> \n                    文本题\n                </button>\n            </div>\n            <div class=\"add\" @click=\"n_add_t_c\">+ 添加问题</div>\n        </div>\n    </div>\n    <div class=\"footer\">\n        <date></date>\n    </div>\n</div>\n";
+	module.exports = "\n<div transition=\"gui\" id=\"new\">\n    <n_title :text.sync='text' :class=\"'new-title'\" :iclass=\"'form-control new-title'\"></n_title>\n    <div class=\"content\">\n        <div class=\"questions\" v-for=\"t in que\">\n            <question :index='$index+1' :type='t.type' :me.sync=\"t\"></question>\n        </div>\n        <div class=\"adds\">\n            <div class=\"btns\" v-show=\"n_add_ts\"  transition=\"n_add_t\">\n                <button type=\"button\" class=\"btn btn-default btn-sm\" @click=\"radio\">\n                    <span class=\"glyphicon glyphicon-ok\" aria-hidden=\"true\"></span> \n                    单选\n                </button>\n                <button type=\"button\" class=\"btn btn-default btn-sm\" @click=\"checkbox\">\n                    <span class=\"glyphicon glyphicon-th-list\" aria-hidden=\"true\"></span> \n                    多选\n                </button>\n                <button type=\"button\" class=\"btn btn-default btn-sm\" @click=\"textarea\">\n                    <span class=\"glyphicon glyphicon-align-left\" aria-hidden=\"true\"></span> \n                    文本题\n                </button>\n            </div>\n            <div class=\"add\" @click=\"n_add_t_c\">+ 添加问题</div>\n        </div>\n    </div>\n    <div class=\"footer\">\n        <date></date>\n        <div class=\"btns\">\n            <button type=\"button\" class=\"btn btn-default btn-sm\" @click=\"mes\">保存问卷</button>\n            <button type=\"button\" class=\"btn btn-default btn-sm\">提交问卷</button>\n        </div>\n    </div>\n    {{que | json}}\n    <pop></pop>\n</div>\n";
 
 /***/ }
 /******/ ]);

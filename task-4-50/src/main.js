@@ -8,7 +8,7 @@ import Home from './components/home';      // 主页
 import No from './components/404';          // 404界面
 import New from './components/new';          // 404界面
 
-
+vue.config.devtools = true;
 vue.use(Router);
 // 创建新实例
 const router = new Router(); 

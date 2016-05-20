@@ -1,6 +1,6 @@
 <template>
     <div class="date">
-        <input type="text" class="form-control" placeholder="date" aria-describedby="basic-addon1" @click="datas" v-el:input>
+        <input type="text" class="form-control" placeholder="date" aria-describedby="basic-addon1" @click="datas" v-el:input v-model="date" readonly='readonly'>
         <div class="panel panel-primary" style="width: 340px;height: 370px;text-align: center" v-show="btn">
             <div class="panel-heading"style="font-size: 24px;">
                 <span class="glyphicon glyphicon-chevron-left" @click="lessen('y')"></span>
@@ -43,6 +43,7 @@ function days(y,w){
         data(){
             return{
                 btn: false,
+                date:getToDay(),
                 day: Number,
                 week: new Date().getMonth() + 1,
                 year: new Date().getFullYear(),
@@ -124,12 +125,27 @@ function days(y,w){
                 this.btn = true;
             },
             myday:function(day){
+                let now = new Date();
                 this.day = day
-                this.$els.input.value = this.year +"-"+ this.week+ "-" + this.day;
+                if(this.day>=now.getDate() 
+                    && this.year>=now.getFullYear() 
+                    && this.week>=now.getMonth()+1){
+                    this.date= this.year +"-"+ this.week+ "-" + this.day;
+                }else{
+                    alert("请输入正确的截止日期")
+                    return false;
+                }
                 this.btn = false;
             }
         }
     }
+function getToDay(){
+    var now = new Date();
+    var nowYear = now.getFullYear();
+    var nowMonth = now.getMonth()+1;
+    var nowDate = now.getDate()+10;
+    return nowYear+"-"+nowMonth+"-"+nowDate;
+}
 </script>
 <style>
     .date {
@@ -186,5 +202,8 @@ function days(y,w){
     }
     .date .form-control{
         width: 200px;
+    }
+    .date .form-control{
+        background: #fff;
     }
 </style>
