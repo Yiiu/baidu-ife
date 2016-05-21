@@ -136,14 +136,18 @@ function days(y,w){
                     return false;
                 }
                 this.btn = false;
+                this.$dispatch("date",this.date)
             }
+        },
+        ready:function(){
+            this.$dispatch("date",this.date)
         }
     }
 function getToDay(){
     var now = new Date();
     var nowYear = now.getFullYear();
     var nowMonth = now.getMonth()+1;
-    var nowDate = now.getDate()+10;
+    var nowDate = now.getDate();
     return nowYear+"-"+nowMonth+"-"+nowDate;
 }
 </script>

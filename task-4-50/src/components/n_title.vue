@@ -31,8 +31,9 @@
                 var ntext = this.text
                 this.editing = false;
                 if(this.text == ""){
-                    this.text = ntext
+                    this.text = "请重新填写"
                 }
+                return this.text;
             },
             edit: function(){
                 this.editing = true;   

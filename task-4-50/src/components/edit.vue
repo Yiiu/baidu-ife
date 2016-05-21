@@ -1,12 +1,13 @@
 <template>
-    <div transition="gui" id="new">
-        <n_title :text.sync='text' :class="'new-title'" :iclass="'form-control new-title'"></n_title>
+    <div transition="gui" id="edit">
+        <n_title :text.sync='data.title' :class="'edit-title'" :iclass="'form-control edit-title'"></n_title>
+        <span>状态：未发布</span>
         <div class="content">
-            <div class="questions" v-for="t in que">
-                <question :index='$index+1'  :que.sync="t" :max="que.length"></question>
+            <div class="questions" v-for="t in data.que">
+                <question :index='$index+1' :que.sync="t"></question>
             </div>
             <div class="adds">
-                <div class="btns" v-show="n_add_ts"  transition="n_add_t">
+                <div class="btns"  v-show="n_add_ts"  transition="n_add_t">
                     <button type="button" class="btn btn-default btn-sm" @click="radio">
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
                         单选
@@ -26,7 +27,7 @@
         <div class="footer">
             <date></date>
             <div class="btns">
-                <button type="button" class="btn btn-default btn-sm"@click="add">保存问卷</button>
+                <button type="button" class="btn btn-default btn-sm" @click="update">保存问卷</button>
                 <button type="button" class="btn btn-default btn-sm" @click="check">提交问卷</button>
             </div>
         </div>
@@ -44,11 +45,23 @@ import question from "./question";
             return {
                 text:"请输入标题",
                 n_add_ts : false,
-                // 问题
-                que:[],
                 date:"",
+                data:{},
                 btn:false,
                 warning:"!",
+                index:0,
+                legal:false 
+            }
+        },
+        route:{
+            data(){
+                let _data = datas.out()
+                this.index = this.$route.path.replace(/[^0-9]/ig,"")
+                if(this.index>_data.length){
+                    this.$route.router.go("/404")
+                }else{
+                    this.data  = _data[this.index]
+                }
             }
         },
         methods:{
@@ -56,7 +69,7 @@ import question from "./question";
                 this.n_add_ts = true;
             },
             radio : function(){
-                this.que.push({
+                this.data.que.push({
                     "type":"radio",
                     "title":"请输入标题",
                     "required":false,
@@ -65,7 +78,7 @@ import question from "./question";
                 this.n_add_ts = false;
             },
             checkbox : function(){
-                this.que.push({
+                this.data.que.push({
                     "type":"checkbox",
                     "title":"请输入标题",
                     "required":false,
@@ -74,7 +87,7 @@ import question from "./question";
                 this.n_add_ts = false;
             },
             textarea : function(){
-                this.que.push({
+                this.data.que.push({
                     "type":"textarea",
                     "title":"请输入标题",
                     "required":false
@@ -83,24 +96,24 @@ import question from "./question";
             },
             // 验证
             check: function(){
-                if(this.que.length == 0){
+                if(this.data.que.length == 0){
                     this.warning = "至少添加一个问题";
                     this.btn = true;
                     return false
                 }else{
-                    for(var i=0;i<this.que.length;i++){
-                        if(this.que[i].title=="请输入标题" || this.que[i].title=="请重新填写"){
+                    for(var i=0;i<this.data.que.length;i++){
+                        if(this.data.que[i].title=="请输入标题" || this.data.que[i].title=="请重新填写"){
                             this.warning = "请输入问题"+(i+1)+ "的标题";
                             this.btn = true;
                             return false
-                        }else if(this.que[i].problem){
-                            if(this.que[i].problem.length <= 1){
+                        }else if(this.data.que[i].problem){
+                            if(this.data.que[i].problem.length <= 1){
                                 this.warning = "每个问题至少2个选项";
                                 this.btn = true;
                                 return false
-                            }else if(this.que[i].problem.length>=2){
-                                for(var j = 0;j<this.que[i].problem.length;j++){
-                                    if(this.que[i].problem[j] === "请重新填写"){
+                            }else if(this.data.que[i].problem.length>=2){
+                                for(var j = 0;j<this.data.que[i].problem.length;j++){
+                                    if(this.data.que[i].problem[j] === "请重新填写"){
                                         this.warning = "请重新输入第"+(i+1)+"问题的第"+(j+1)+"个选项";
                                         this.btn = true;
                                         return false
@@ -110,22 +123,15 @@ import question from "./question";
                         }
                     }
                 }
-                let _data = {};
-                _data.state = "on";
-                _data.timeEnd = this.date;
-                _data.title = this.text;
-                _data.que = this.que;
-                datas.add(_data);
+                this.data.state = "on";
+                datas.update(this.index,this.data);
                 this.$route.router.go("/list")
             },
-            add:function(){
-                let _data = {};
-                _data.state = "rel";
-                _data.timeEnd = this.date;
-                _data.title = this.text;
-                _data.que = this.que;
-                datas.add(_data);
+            update:function(){
+                datas.update(this.index,this.data);
                 this.$route.router.go("/list")
+            },
+            submit:function(){
             },
             deep:function(index){
                 var j = {},
@@ -167,6 +173,7 @@ import question from "./question";
                 this.date = date;
             }
         },
+
         // 组件
         components:{
             question,
@@ -191,7 +198,7 @@ import question from "./question";
       opacity: 0;
     }
     /*  new  */
-    #new  span.new-title{
+    #edit  span.edit-title{
         display: block;
         margin:0;
         height: 34px;
@@ -200,28 +207,28 @@ import question from "./question";
         text-align: center;
         font-size: 24px;
     }
-    #new  span.new-title:hover{
+    #edit  span.edit-title:hover{
         background: #fff;
     }
-    #new  input.new-title{
+    #edit  input.edit-title{
         margin: 0;
         padding:0;
         text-align: center;
         font-size: 24px;
         border :0;
     }
-    #new>.content {
+    #edit>.content {
         margin-top: 10px;
         margin-bottom: 10px;
         padding:20px;
         border-top: 2px solid #ccc;
         border-bottom: 2px solid #ccc;
     }
-    #new .adds {
+    #edit .adds {
         margin-top: 10px;
         border: 1px solid #ccc;
     }
-    #new .content .add{
+    #edit .content .add{
         height: 80px;
         line-height: 80px;
         background:#ddd;
@@ -230,12 +237,12 @@ import question from "./question";
         text-align: center;
         cursor: pointer;
     }
-    #new .content .adds .btns {
+    #edit .content .adds .btns {
         position: relative;
         width: 205px;
         margin: 10px auto 10px auto;
     }
-    #new .footer .btns {
+    #edit .footer .btns {
         float: right;
     }
 </style>

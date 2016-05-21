@@ -1,25 +1,25 @@
 <template>
-    <div class="n_radio question">
+    <div class="n_radio question" @mouseover="open" @mouseout="shut">
         <h4>
             <template 
-            v-if="type=='radio'">
+            v-if="que.type=='radio'">
                 Q{{index}}  (单选题)
             </template>
             <template 
-            v-if="type=='checkbox'">
+            v-if="que.type=='checkbox'">
                 Q{{index}}  (多选题)
             </template>
             <template 
-            v-if="type=='textarea'">
+            v-if="que.type=='textarea'">
                 Q{{index}}  (文本题)
             </template>
             <span>
-                <n_title :text.sync="h1" ></n_title>
+                <n_title :text.sync='que.title' ></n_title>
             </span>
         </h4>
         <ul>
             <!-- 单选 -->
-            <template v-for="test in problem" v-if="type=='radio'">
+            <template v-for="test in que.problem" v-if="que.type=='radio'">
                 <li>
                     <span class="glyphicon glyphicon-unchecked"></span>
                     <n_title 
@@ -33,7 +33,7 @@
                 </li>
             </template>
             <!-- 多选 -->
-            <template v-for="test in problem" v-if="type=='checkbox'">
+            <template v-for="test in que.problem" v-if="que.type=='checkbox'">
                 <li>
                     <span class="glyphicon glyphicon-record"></span>
                     <n_title 
@@ -47,26 +47,30 @@
                 </li>
             </template>
             <!-- 文本 -->
-            <template  v-if="type=='textarea'">
+            <template  v-if="que.type=='textarea'">
                 <li>
                     <span class="glyphicon glyphicon-align-justify"></span>
                 </li>
             </template>
             <li class="q_add" 
                 @click="pr_add"  
-                v-if="type=='radio' || type=='checkbox'"
+                v-if="que.type=='radio' || que.type=='checkbox'"
             >+</li>
         </ul>
             <!--必填按钮-->
         <div class="required btns">
-            <input type="checkbox" name="required" v-model="required" :true="true" :false="false"/><span>此题是否必填</span>
+            <input type="checkbox" name="required" v-model="que.required" :true="true" :false="false"/><span>此题是否必填</span>
         </div>
         <!--功能按钮-->
-        <div class="fun btns">
-            <span>上移</span>
-            <span>下移</span>
-            <span>复用</span>
-            <span>删除</span>
+        <div class="fun btns" v-show="btn">
+            <span @click="moveu"
+            v-show="index!=1"
+            >上移</span>
+            <span
+            v-show="on()"
+             @click="downt">下移</span>
+            <span @click="overlap">复用</span>
+            <span @click="del">删除</span>
         </div>
     </div>
 </template>
@@ -79,44 +83,75 @@ import n_title from "./n_title"
     export default {
         data(){
             return {
-                required:false,
                 problem:new Array,
-                h1:"请输入标题",
+                btn:false,
+                if_move:false
             }
         },
         props: {
+            que:Object,
             index: Number,
             type: String,
+            max:Number
         },
         components:{
             n_title
         },
         methods:{
             pr_add:function(){
-                this.problem.push({"title":"问题"})
+                this.que.problem.push({"title":"问题"})
             },
             pr_del:function(index){
-                this.problem.splice(index,1)
+                this.que.problem.splice(index,1)
             },
-        },
+            // 复用
+            overlap:function(){
+                this.$dispatch("overlap",this.index)
+            },
+            // 下移
+            downt:function(){
+                this.$dispatch("downt",this.index)
+            },
+            // 上移
+            moveu:function(){
+                this.$dispatch("moveu",this.index)
+            },
+            // 删除
+            del:function(){
+                this.$dispatch("del",this.index)
+            },
+            open:function(){
+                this.btn =  true;
+            },
+            shut:function(){
+                this.btn =  false;
+            },
+            on:function(){
+                if(this.max==this.index){
+                    return false
+                }else{
+                    return true
+                }
+            }
+        }
     }
 </script>
 <style>
-    #new .content .questions>div.question{
+    .content .questions>div.question{
         transition: 0.3s all;
         position: relative;
         padding: 10px;
     }
-    #new .content .questions>div.question:hover{
+    .content .questions>div.question:hover{
         background: #dedede;
     }
-    #new .content .questions ul{
+    .content .questions ul{
         padding-left: 30px;
     }
-    #new .content .questions li{
+    .content .questions li{
         list-style: none;
     }
-    #new .content .questions li.q_add{
+    .content .questions li.q_add{
         cursor: pointer;
         text-align: center;
         font-size: 18px;
@@ -125,34 +160,34 @@ import n_title from "./n_title"
         border-radius: 2px;
         opacity: 0;
     }
-    #new .content .questions li.q_add:hover{
+    .content .questions li.q_add:hover{
         opacity: 1;
     }
-    #new .content .questions input{
+    .content .questions input{
         margin-right: 5px;
     }
-    #new .content .questions textarea{
+    .content .questions textarea{
         width: 100%;
         max-width: 100%;
     }
-    #new .content .questions .required{
+    .content .questions .required{
         position: absolute;
         top: 5px;
         right: 10px;
         height: 0;
         font-size: 10px;
     }
-    #new .content .questions .fun{
+    .content .questions .fun{
         position: absolute;
         bottom: 20px;
         right: 10px;
         height: 0;
         font-size: 10px;
     }
-    #new .content .questions .question h4 {
+    .content .questions .question h4 {
         height: 21px;
     }
-    #new .content .questions .question input {
+    .content .questions .question input {
         width: auto;
         border: 0;
     }
@@ -162,7 +197,7 @@ import n_title from "./n_title"
     .glyphicon-align-justify {
         font-size: 46px;
     }
-    #new .content .questions>div.question>div.fun span{
+    .content .questions>div.question>div.fun span{
         cursor:pointer;
     }
 </style>

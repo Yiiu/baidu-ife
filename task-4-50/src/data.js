@@ -12,7 +12,6 @@ if(!window.localStorage.yiiuWenjuanData){
     function add(obj){
         data.push({
             "title":obj.title,
-            "timeStart":obj.timeStart,
             "timeEnd":obj.timeEnd,
             "state":obj.state,
             "sub":obj.sub
@@ -42,21 +41,24 @@ if(!window.localStorage.yiiuWenjuanData){
     localStorage.setItem('yiiuWenjuanData', JSON.stringify(data));
 }
 // 再吧sessen里的数据转换成对象。
-let a = JSON.parse(localStorage.getItem('yiiuWenjuanData'));
 export default{
     out(){
-        return{
-            //读取数据
-            read:a,
-            // 添加数据
-            add(){
-                data.push({
-                    "title":obj.title,
-                    "timeStart":obj.timeStart,
-                    "timeEnd":obj.timeEnd,
-                    "state":obj.state
-                })
-            }
-        }
+        return JSON.parse(localStorage.getItem("yiiuWenjuanData"))
+    },
+    add(obj){
+        let a = JSON.parse(localStorage.getItem('yiiuWenjuanData'));
+        a.push(obj)
+        localStorage.setItem('yiiuWenjuanData', JSON.stringify(a));
+    },
+    del(index){
+        let a = JSON.parse(localStorage.getItem('yiiuWenjuanData'));
+        a.splice(index,1);
+        localStorage.setItem('yiiuWenjuanData', JSON.stringify(a));
+    },
+    update(index,data){
+        let a = JSON.parse(localStorage.getItem('yiiuWenjuanData'));
+        a.splice(index,1);
+        a.splice(index,0,data);
+        localStorage.setItem('yiiuWenjuanData', JSON.stringify(a));
     }
 }

@@ -8,15 +8,3 @@
     height: 0;
     opacity: 0;
 }
-.table tbody tr {
-    transition: all .3s ease;
-}
-.table tbody tr:hover{
-    background: #ddd;
-}
-.re{
-    color: #4CAF50;
-}
-.end{
-    color: #E81818;
-}

@@ -8,9 +8,13 @@
                 {{war}}
             </div>
             <div class="select">
-                <button type="button" class="btn btn-primary btn-block" @click="c">
+                <button type="button" class="btn btn-primary" @click="c">
                     <span class="glyphicon glyphicon-ok"></span>
                     确定
+                </button>
+                <button type="button" class="btn btn-primary" @click="e" v-if="single">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    取消
                 </button>
             </div>
         </div>
@@ -20,11 +24,20 @@
     export default{
         props:{
             on:Boolean,
-            war:String
+            war:String,
+            single: Boolean,
+            confirm:Function
         },
         methods:{
             c:function(){
-                this.on=false
+                this.on=false;
+                if(this.confirm){
+                    this.confirm()
+                }
+            },
+            e:function(){
+                this.on=false;
+                return false;
             }
         }
     }
@@ -92,8 +105,11 @@
     font-size: 16px;
 }
 .yiiuPop>div.popContent .select  {
-    width: 80px;
+    text-align:center;
     margin: 0 auto;
+}
+.yiiuPop>div.popContent .select .btn  {
+    display:table-cell;
 }
 .modal-enter, .modal-leave {
   opacity: 0;

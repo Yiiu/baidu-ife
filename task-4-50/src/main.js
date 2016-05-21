@@ -2,6 +2,8 @@ import vue from "vue";
 import Router from "vue-router";
 import data from './data';             // app
 
+import see from "./components/see";
+import edit from "./components/edit";
 import App from './components/app';             // app
 import List from './components/list';               // 列表页
 import Home from './components/home';      // 主页
@@ -28,6 +30,14 @@ router.map({
     "/new" : {
         name: "new",
         component : New
+    },
+    "/see/:id":{
+        name:"see",
+        component:see
+    },
+    "/edit/:id":{
+        name:"edit",
+        component:edit
     }
 })
 router.redirect({
