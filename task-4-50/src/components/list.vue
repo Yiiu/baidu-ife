@@ -24,10 +24,10 @@
                         <th v-if="test.state=='end'" class="end">
                         结束</th>
                         <th>
-                            <a v-link="{name:'edit',params:{id:$index}}">编辑</a>
+                            <a v-link="{name:'edit',params:{id:$index}}" v-if="test.state == 'rel'">编辑</a>
                             <a @click="btndel($index)">删除</a>
-                            <a v-link="{name:'see',params:{id:$index}}" v-if="test.state=='rel'">查看问卷</a>
-                            <a v-link="{name:'edit',params:{id:$index}}" v-if="test.state=='end'  || test.state=='on'">查看数据</a>
+                            <a v-link="{name:'see',params:{id:$index}}" v-if="test.state=='rel' || test.state=='on'">查看问卷</a>
+                            <a v-link="{name:'stati',params:{id:$index}}" v-if="test.state=='end'  || test.state=='on'">查看数据</a>
                         </th>
                     </tr>
                 </tbody>

@@ -3,6 +3,7 @@ import Router from "vue-router";
 import data from './data';             // app
 
 import see from "./components/see";
+import stati from "./components/statistics";
 import edit from "./components/edit";
 import App from './components/app';             // app
 import List from './components/list';               // 列表页
@@ -38,6 +39,10 @@ router.map({
     "/edit/:id":{
         name:"edit",
         component:edit
+    },
+    "/stati/:id":{
+        name:"stati",
+        component:stati
     }
 })
 router.redirect({

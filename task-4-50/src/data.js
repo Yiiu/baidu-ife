@@ -14,28 +14,74 @@ if(!window.localStorage.yiiuWenjuanData){
             "title":obj.title,
             "timeEnd":obj.timeEnd,
             "state":obj.state,
-            "sub":obj.sub
+            "que":obj.que
         })
     }
     add({
-        title:"你好",
-        timeStart:"2015-1-1",
-        timeEnd:"2015-2-2",
+        title:"js框架使用使用情况调查",
+        timeEnd:"2016-5-30",
         state:"on",
-        sub:[
+        que:[
             {
-                title: "什么鬼东西",
-                option: [
-                    "test"
-                ],
+                type: "checkbox",
+                title: "你最常使用的框架或库是什么？",
+                required: false,
+                problem: [
+                    {
+                        title: "react",
+                        num: 21
+                    },
+                    {
+                        title: "vue",
+                        num: 21
+                    },
+                    {
+                        title: "jquery",
+                        num: 40
+                    },
+                    {
+                        title: "bootstrap",
+                        num: 30
+                    },
+                    {
+                        title: "angularjs",
+                        num: 21
+                    },
+                ]
             },
+            {
+                type: "radio",
+                title: "你觉得那个框架的学习难度最大？",
+                required: false,
+                problem: [
+                    {
+                        title: "react",
+                        num: 25
+                    },
+                    {
+                        title: "vue",
+                        num: 23
+                    },
+                    {
+                        title: "jquery",
+                        num: 12
+                    },
+                    {
+                        title: "bootstrap",
+                        num: 10
+                    },
+                    {
+                        title: "angularjs",
+                        num: 30
+                    },
+                ]
+            },
+            {
+                type: "textarea",
+                title: "说出你喜欢的框架或者库的优点",
+                required: false
+            }
         ]
-    })
-    add({
-        title:"你好1",
-        timeStart:"2015-1-1",
-        timeEnd:"2015-2-2",
-        state:"end"
     })
     // 将数据以JSON字符串的方式添加到sessen里
     localStorage.setItem('yiiuWenjuanData', JSON.stringify(data));

@@ -7,7 +7,7 @@
                     <h4>Q{{$index+1}}  (单选题) {{s.title}}</h4>
                     <ul>
                         <li v-for="t in s.problem">
-                            <input type="radio" name="radio"> 
+                            <input type="radio" name="radio-{{s.title}}"> 
                             <span class="">{{t.title}}</span>
                         </li>
                     </ul>
@@ -16,7 +16,7 @@
                     <h4>Q{{$index+1}}  (多选题) {{s.title}}</h4>
                     <ul>
                         <li v-for="t in s.problem">
-                            <input type="checkbox" name="radio-{{$index}}"> 
+                            <input type="checkbox" name="radio-{{s.title}}"> 
                             <span class="">{{t.title}}</span>
                         </li>
                     </ul>
@@ -29,6 +29,9 @@
                 </template>
             </div>
         </div>
+        <button type="button" class="btn btn-default btn-sm">
+            提交
+        </button>
     </div>
 </template>
 <script>
@@ -58,6 +61,7 @@
     }
     .see .content {
         margin-top: 30px;
+        margin-bottom: 30px;
     }
     .see ul {
         list-style:none;

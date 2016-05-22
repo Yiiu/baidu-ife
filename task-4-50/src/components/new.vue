@@ -232,7 +232,7 @@ import question from "./question";
     }
     #new .content .adds .btns {
         position: relative;
-        width: 205px;
+        width:220px;
         margin: 10px auto 10px auto;
     }
     #new .footer .btns {

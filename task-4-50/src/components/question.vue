@@ -99,7 +99,7 @@ import n_title from "./n_title"
         },
         methods:{
             pr_add:function(){
-                this.que.problem.push({"title":"问题"})
+                this.que.problem.push({"title":"问题","num":0})
             },
             pr_del:function(index){
                 this.que.problem.splice(index,1)
