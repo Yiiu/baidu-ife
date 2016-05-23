@@ -71795,10 +71795,12 @@
 	            j.title = this.que[index].title;
 	            j.type = this.que[index].type;
 	            j.require = false;
-	            for (var i = 0; i < this.que[index].problem.length; i++) {
-	                p.push({ "title": this.que[index].problem[i].title });
+	            if (this.que[index].type != "textarea") {
+	                for (var i = 0; i < this.que[index].problem.length; i++) {
+	                    p.push({ "title": this.que[index].problem[i].title });
+	                }
+	                j.problem = p;
 	            }
-	            j.problem = p;
 	            return j;
 	        }
 	    },
