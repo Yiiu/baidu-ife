@@ -13619,7 +13619,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// <template>
-	//     <div id="statistics">
+	//     <div id="statistics" transition="gui">
 	//         <h1 class="text-center">{{data.title}}</h1>
 	//         <div v-for="t in data.que">
 	//             <echarts :data="t" :index="$index+1"></echarts>
@@ -13801,7 +13801,7 @@
 	//      }
 	// </style>
 	// <template>
-	//     <div class="chart">
+	//     <div class="chart"  transition="gui">
 	//     {{name | json}}
 	//     {{num | json}}
 	//         <h2 class="text-center">Q{{index}} {{data.title}}</h2>
@@ -69954,13 +69954,13 @@
 /* 373 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"chart\">\n{{name | json}}\n{{num | json}}\n    <h2 class=\"text-center\">Q{{index}} {{data.title}}</h2>\n    <div style=\"text-align:center;\">\n        <span>\n            题型：\n            <span v-if=\"data.type == 'radio'\">单选题</span>\n            <span v-if=\"data.type == 'checkbox'\">多选题</span>\n            <span v-if=\"data.type == 'textarea'\">文本题</span>\n            <span></span>\n        </span>\n    </div>\n    <div class=\"chartss\" v-if=\"data.type!='textarea'\">\n        <canvas width=\"500\" height=\"400\" align=\"center\" class=\"charts\" v-el:canvas ></canvas>\n    </div>\n</div>\n";
+	module.exports = "\n<div class=\"chart\"  transition=\"gui\">\n{{name | json}}\n{{num | json}}\n    <h2 class=\"text-center\">Q{{index}} {{data.title}}</h2>\n    <div style=\"text-align:center;\">\n        <span>\n            题型：\n            <span v-if=\"data.type == 'radio'\">单选题</span>\n            <span v-if=\"data.type == 'checkbox'\">多选题</span>\n            <span v-if=\"data.type == 'textarea'\">文本题</span>\n            <span></span>\n        </span>\n    </div>\n    <div class=\"chartss\" v-if=\"data.type!='textarea'\">\n        <canvas width=\"500\" height=\"400\" align=\"center\" class=\"charts\" v-el:canvas ></canvas>\n    </div>\n</div>\n";
 
 /***/ },
 /* 374 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div id=\"statistics\">\n    <h1 class=\"text-center\">{{data.title}}</h1>\n    <div v-for=\"t in data.que\">\n        <echarts :data=\"t\" :index=\"$index+1\"></echarts>\n    </div>\n</div>\n";
+	module.exports = "\n<div id=\"statistics\" transition=\"gui\">\n    <h1 class=\"text-center\">{{data.title}}</h1>\n    <div v-for=\"t in data.que\">\n        <echarts :data=\"t\" :index=\"$index+1\"></echarts>\n    </div>\n</div>\n";
 
 /***/ },
 /* 375 */
@@ -70159,11 +70159,11 @@
 	        deep: function deep(index) {
 	            var j = {},
 	                p = [];
-	            j.title = this.que[index].title;
-	            j.type = this.que[index].type;
+	            j.title = this.data.que[index].title;
+	            j.type = this.data.que[index].type;
 	            j.require = false;
-	            for (var i = 0; i < this.que[index].problem.length; i++) {
-	                p.push({ "title": this.que[index].problem[i].title });
+	            for (var i = 0; i < this.data.que[index].problem.length; i++) {
+	                p.push({ "title": this.data.que[index].problem[i].title });
 	            }
 	            j.problem = p;
 	            return j;
@@ -70173,30 +70173,29 @@
 	        // 复用
 	        overlap: function overlap(index) {
 	            var j = this.deep(index - 1);
-	            this.que.push(j);
+	            this.data.que.push(j);
 	        },
 	        // 下移
 	        downt: function downt(index) {
 	            var a = this.deep(index - 1);
 	            var b = this.deep(index);
-	            this.que.splice(index - 1, 1);
-	            this.que.splice(index, 1, a);
+	            this.data.que.splice(index - 1, 1);
+	            this.data.que.splice(index, 0, a);
 	        },
 	        // 上移
 	        moveu: function moveu(index) {
 	            var a = this.deep(index - 2);
 	            var b = this.deep(index - 1);
-	            this.que.splice(index - 2, 1);
-	            this.que.splice(index, -1, a);
+	            this.data.que.splice(index - 2, 1);
+	            this.data.que.splice(index, -1, a);
 	        },
 	        del: function del(index) {
-	            this.que.splice(index - 1, 1);
+	            this.data.que.splice(index - 1, 1);
 	        },
 	        date: function date(_date) {
 	            this.date = _date;
 	        }
 	    },
-
 	    // 组件
 	    components: {
 	        question: _question2.default,
@@ -70688,7 +70687,7 @@
 	// <template>
 	//     <div class="date">
 	//         <input type="text" class="form-control" placeholder="date" aria-describedby="basic-addon1" @click="datas" v-el:input v-model="date" readonly='readonly'>
-	//         <div class="panel panel-primary" style="width: 340px;height: 370px;text-align: center" v-show="btn">
+	//         <div class="panel panel-primary" style="width: 340px;text-align: center" v-show="btn">
 	//             <div class="panel-heading"style="font-size: 24px;">
 	//                 <span class="glyphicon glyphicon-chevron-left" @click="lessen('y')"></span>
 	//                 {{year}}
@@ -70904,7 +70903,7 @@
 /* 391 */
 /***/ function(module, exports) {
 
-	module.exports = "\n    <div class=\"date\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"date\" aria-describedby=\"basic-addon1\" @click=\"datas\" v-el:input v-model=\"date\" readonly='readonly'>\n        <div class=\"panel panel-primary\" style=\"width: 340px;height: 370px;text-align: center\" v-show=\"btn\">\n            <div class=\"panel-heading\"style=\"font-size: 24px;\">\n                <span class=\"glyphicon glyphicon-chevron-left\" @click=\"lessen('y')\"></span>\n                {{year}}\n                <span class=\"glyphicon glyphicon-chevron-right\" @click=\"add('y')\"></span>\n                <span class=\"glyphicon glyphicon-chevron-left\" @click=\"lessen\"></span>\n                {{week}}\n                <span class=\"glyphicon glyphicon-chevron-right\" @click=\"add\"></span>\n                            <ul class=\"e\"><li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li></ul>\n\n            </div>\n            <div class=\"table\">\n            <ul>\n                <template v-for=\"fts in ft\">\n                    <li class=\"def front\">{{fts}}</li>\n                </template>\n                <template v-for=\"cts in ct\">\n                    <li class=\"center\" @click=\"myday(cts)\" day=>{{cts}}</li>\n                </template>\n                <template v-for=\"ats in at\">\n                    <li class=\"def after\">{{ats}}</li>\n                </template>\n            </ul>\n        </div>\n    </div>\n</template>";
+	module.exports = "\n    <div class=\"date\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"date\" aria-describedby=\"basic-addon1\" @click=\"datas\" v-el:input v-model=\"date\" readonly='readonly'>\n        <div class=\"panel panel-primary\" style=\"width: 340px;text-align: center\" v-show=\"btn\">\n            <div class=\"panel-heading\"style=\"font-size: 24px;\">\n                <span class=\"glyphicon glyphicon-chevron-left\" @click=\"lessen('y')\"></span>\n                {{year}}\n                <span class=\"glyphicon glyphicon-chevron-right\" @click=\"add('y')\"></span>\n                <span class=\"glyphicon glyphicon-chevron-left\" @click=\"lessen\"></span>\n                {{week}}\n                <span class=\"glyphicon glyphicon-chevron-right\" @click=\"add\"></span>\n                            <ul class=\"e\"><li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li></ul>\n\n            </div>\n            <div class=\"table\">\n            <ul>\n                <template v-for=\"fts in ft\">\n                    <li class=\"def front\">{{fts}}</li>\n                </template>\n                <template v-for=\"cts in ct\">\n                    <li class=\"center\" @click=\"myday(cts)\" day=>{{cts}}</li>\n                </template>\n                <template v-for=\"ats in at\">\n                    <li class=\"def after\">{{ats}}</li>\n                </template>\n            </ul>\n        </div>\n    </div>\n</template>";
 
 /***/ },
 /* 392 */
@@ -71475,13 +71474,13 @@
 	// }
 	// </style>
 	// <template>
-	//     <div transition="gui">
+	//     <div  transition="gui">
 	//         <div class="panel panel-default">
 	//             <div class="panel-heading">问卷</div>
 	//             <table class="table">
 	//                 <thead>
 	//                     <tr>
-	//                         <th></th>
+	//                         <th><input type="checkbox"></th>
 	//                         <th>标题</th>
 	//                         <th>截止日期</th>
 	//                         <th>状态</th>
@@ -71490,7 +71489,7 @@
 	//                 </thead>
 	//                 <tbody>
 	//                     <tr v-for="test in item">
-	//                         <th><input type="checkbox"></th>
+	//                         <th><input type="checkbox" name="question"></th>
 	//                         <th>{{test.title}}</th>
 	//                         <th>{{test.timeEnd}}</th>
 	//                         <th v-if="test.state=='on'">
@@ -71518,7 +71517,7 @@
 /* 408 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div transition=\"gui\">\n    <div class=\"panel panel-default\">\n        <div class=\"panel-heading\">问卷</div>\n        <table class=\"table\">\n            <thead>\n                <tr>\n                    <th></th>\n                    <th>标题</th>\n                    <th>截止日期</th>\n                    <th>状态</th>\n                    <th>操作</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr v-for=\"test in item\">\n                    <th><input type=\"checkbox\"></th>\n                    <th>{{test.title}}</th>\n                    <th>{{test.timeEnd}}</th>\n                    <th v-if=\"test.state=='on'\">\n                    已发布</th>\n                    <th v-if=\"test.state=='rel'\" class=\"re\">\n                    未发布</th>\n                    <th v-if=\"test.state=='end'\" class=\"end\">\n                    结束</th>\n                    <th>\n                        <a v-link=\"{name:'edit',params:{id:$index}}\" v-if=\"test.state == 'rel'\">编辑</a>\n                        <a @click=\"btndel($index)\">删除</a>\n                        <a v-link=\"{name:'see',params:{id:$index}}\" v-if=\"test.state=='rel' || test.state=='on'\">查看问卷</a>\n                        <a v-link=\"{name:'stati',params:{id:$index}}\" v-if=\"test.state=='end'  || test.state=='on'\">查看数据</a>\n                    </th>\n                </tr>\n            </tbody>\n        </table>\n        <pop :on.sync=\"btn\" :war=\"warning\" :confirm=\"del\" :single=\"true\"></pop>\n    </div>\n</div>\n";
+	module.exports = "\n<div  transition=\"gui\">\n    <div class=\"panel panel-default\">\n        <div class=\"panel-heading\">问卷</div>\n        <table class=\"table\">\n            <thead>\n                <tr>\n                    <th><input type=\"checkbox\"></th>\n                    <th>标题</th>\n                    <th>截止日期</th>\n                    <th>状态</th>\n                    <th>操作</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr v-for=\"test in item\">\n                    <th><input type=\"checkbox\" name=\"question\"></th>\n                    <th>{{test.title}}</th>\n                    <th>{{test.timeEnd}}</th>\n                    <th v-if=\"test.state=='on'\">\n                    已发布</th>\n                    <th v-if=\"test.state=='rel'\" class=\"re\">\n                    未发布</th>\n                    <th v-if=\"test.state=='end'\" class=\"end\">\n                    结束</th>\n                    <th>\n                        <a v-link=\"{name:'edit',params:{id:$index}}\" v-if=\"test.state == 'rel'\">编辑</a>\n                        <a @click=\"btndel($index)\">删除</a>\n                        <a v-link=\"{name:'see',params:{id:$index}}\" v-if=\"test.state=='rel' || test.state=='on'\">查看问卷</a>\n                        <a v-link=\"{name:'stati',params:{id:$index}}\" v-if=\"test.state=='end'  || test.state=='on'\">查看数据</a>\n                    </th>\n                </tr>\n            </tbody>\n        </table>\n        <pop :on.sync=\"btn\" :war=\"warning\" :confirm=\"del\" :single=\"true\"></pop>\n    </div>\n</div>\n";
 
 /***/ },
 /* 409 */
@@ -71794,8 +71793,8 @@
 	                p = [];
 	            j.title = this.que[index].title;
 	            j.type = this.que[index].type;
-	            j.require = false;
-	            if (this.que[index].type != "textarea") {
+	            j.require = this.que[index].require;
+	            if (this.que[index].problem) {
 	                for (var i = 0; i < this.que[index].problem.length; i++) {
 	                    p.push({ "title": this.que[index].problem[i].title });
 	                }
@@ -71815,7 +71814,7 @@
 	            var a = this.deep(index - 1);
 	            var b = this.deep(index);
 	            this.que.splice(index - 1, 1);
-	            this.que.splice(index, 1, a);
+	            this.que.splice(index, 0, a);
 	        },
 	        // 上移
 	        moveu: function moveu(index) {

@@ -136,11 +136,11 @@ import question from "./question";
             deep:function(index){
                 var j = {},
                     p = [];
-                j.title = this.que[index].title;
-                j.type = this.que[index].type;
+                j.title = this.data.que[index].title;
+                j.type = this.data.que[index].type;
                 j.require = false;
-                for(var i=0;i<this.que[index].problem.length;i++){
-                    p.push({"title":this.que[index].problem[i].title})
+                for(var i=0;i<this.data.que[index].problem.length;i++){
+                    p.push({"title":this.data.que[index].problem[i].title})
                 }
                 j.problem = p;
                 return j
@@ -150,30 +150,29 @@ import question from "./question";
             // 复用
             overlap:function(index){
                 var j = this.deep(index-1);
-                this.que.push(j)
+                this.data.que.push(j)
             },
             // 下移
             downt:function(index){
                 var a = this.deep(index-1);
                 var b = this.deep(index);
-                this.que.splice(index-1,1)
-                this.que.splice(index,1,a)
+                this.data.que.splice(index-1,1)
+                this.data.que.splice(index,0,a)
             },
             // 上移
             moveu:function(index){
                 var a = this.deep(index-2);
                 var b = this.deep(index-1);
-                this.que.splice(index-2,1)
-                this.que.splice(index,-1,a)
+                this.data.que.splice(index-2,1)
+                this.data.que.splice(index,-1,a)
             },
             del:function(index){
-                this.que.splice(index-1,1)
+                this.data.que.splice(index-1,1)
             },
             date:function(date){
                 this.date = date;
             }
         },
-
         // 组件
         components:{
             question,

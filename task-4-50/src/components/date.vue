@@ -1,7 +1,7 @@
 <template>
     <div class="date">
         <input type="text" class="form-control" placeholder="date" aria-describedby="basic-addon1" @click="datas" v-el:input v-model="date" readonly='readonly'>
-        <div class="panel panel-primary" style="width: 340px;height: 370px;text-align: center" v-show="btn">
+        <div class="panel panel-primary" style="width: 340px;text-align: center" v-show="btn">
             <div class="panel-heading"style="font-size: 24px;">
                 <span class="glyphicon glyphicon-chevron-left" @click="lessen('y')"></span>
                 {{year}}

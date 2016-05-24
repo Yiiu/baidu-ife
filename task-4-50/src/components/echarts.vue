@@ -1,5 +1,5 @@
 <template>
-    <div class="chart">
+    <div class="chart"  transition="gui">
     {{name | json}}
     {{num | json}}
         <h2 class="text-center">Q{{index}} {{data.title}}</h2>

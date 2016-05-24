@@ -132,8 +132,8 @@ import question from "./question";
                     p = [];
                 j.title = this.que[index].title;
                 j.type = this.que[index].type;
-                j.require = false;
-                if(this.que[index].type != "textarea"){
+                j.require = this.que[index].require;
+                if(this.que[index].problem){
                     for(var i=0;i<this.que[index].problem.length;i++){
                         p.push({"title":this.que[index].problem[i].title})
                     }
@@ -153,7 +153,7 @@ import question from "./question";
                 var a = this.deep(index-1);
                 var b = this.deep(index);
                 this.que.splice(index-1,1)
-                this.que.splice(index,1,a)
+                this.que.splice(index,0,a)
             },
             // 上移
             moveu:function(index){

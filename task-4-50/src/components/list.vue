@@ -1,11 +1,11 @@
 <template>
-    <div transition="gui">
+    <div  transition="gui">
         <div class="panel panel-default">
             <div class="panel-heading">问卷</div>
             <table class="table">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th><input type="checkbox"></th>
                         <th>标题</th>
                         <th>截止日期</th>
                         <th>状态</th>
@@ -14,7 +14,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="test in item">
-                        <th><input type="checkbox"></th>
+                        <th><input type="checkbox" name="question"></th>
                         <th>{{test.title}}</th>
                         <th>{{test.timeEnd}}</th>
                         <th v-if="test.state=='on'">
