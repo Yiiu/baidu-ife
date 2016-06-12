@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
     entry: "./src/main.js",
     output: {
@@ -17,7 +19,6 @@ module.exports = {
     plugins: ['transform-runtime']
   },    
   resolve: {
-        // require时省略的扩展名，如：require('module') 不需要module.js
         extensions: ['', '.js', '.vue']
-    }
+    },
 }

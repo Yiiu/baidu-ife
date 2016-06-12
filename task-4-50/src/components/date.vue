@@ -9,8 +9,7 @@
                 <span class="glyphicon glyphicon-chevron-left" @click="lessen"></span>
                 {{week}}
                 <span class="glyphicon glyphicon-chevron-right" @click="add"></span>
-                            <ul class="e"><li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li></ul>
-
+                <ul class="e"><li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li></ul>
             </div>
             <div class="table">
             <ul>
@@ -28,9 +27,9 @@
     </div>
 </template>
 <script>
-let ft = [];
-let ct = [];
-let at = [];
+let ft = new Array();
+let ct = new Array();
+let at = new Array();
 let week = function(y,w,d){
     var x = new Date(y,w,d).getDay();
     return x ;
@@ -126,7 +125,7 @@ function days(y,w){
             },
             myday:function(day){
                 let now = new Date();
-                this.day = day
+                this.day = day;
                 if(this.day>=now.getDate() 
                     && this.year>=now.getFullYear() 
                     && this.week>=now.getMonth()+1){
