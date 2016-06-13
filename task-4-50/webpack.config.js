@@ -17,8 +17,11 @@ module.exports = {
   babel: {
     presets: ['es2015', 'stage-0'],
     plugins: ['transform-runtime']
-  },    
-  resolve: {
-        extensions: ['', '.js', '.vue']
+  }, 
+    resolve: {
+        extensions: ['', '.js', '.vue'],
+        alias:{
+            vue: "../dist/vue/vue.min.js",
+        }
     },
 }
