@@ -21,7 +21,7 @@
     background: #ccc;
 }
 .tables .sort-bnt {
-    padding-top: 4px;
+    margin-top: -4px;
     position: absolute;
     margin-left: 15px;
     display: inline-block;
